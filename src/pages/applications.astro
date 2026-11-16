@@ -7,8 +7,8 @@ const cases = [
   {
     id: "drug-delivery",
     image: "liposome.jpg",
-    alt: "AI-generated cutaway illustration of a liposomal carrier enclosing molecules",
-    altZh: "AI 生成的脂质体载体剖面示意图，内部包裹分子",
+    alt: "Cutaway illustration of a liposomal carrier enclosing molecules",
+    altZh: "脂质体载体剖面示意图，内部包裹分子",
     title: "Drug transport and delivery",
     titleZh: "药物输运与递送",
     question:
@@ -20,16 +20,12 @@ const cases = [
       "A delivery team could compare two sizes of tracer particles in the same branching chip. Video tracking could estimate the fraction reaching each outlet, with manual counts on selected frames. The comparison could help the team choose a size for its next flow experiment.",
     bodyZh:
       "递送研发团队可以让两种粒径的示踪颗粒分别流过同一块分叉芯片。一个可尝试的影像分析任务，是追踪颗粒经过分叉的路径，统计每个出口的颗粒占比，再用人工计数抽查。这样可以帮助团队判断哪种粒径值得在下一轮流动实验中继续研究。",
-    source: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4111996/",
-    sourceTitle:
-      "Characterization of nanoparticle delivery in microcirculation using a microfluidic device",
-    sourceTitleZh: "使用微流控装置表征微循环中的纳米颗粒递送",
   },
   {
     id: "textile-cleaning",
     image: "cotton.jpg",
-    alt: "AI-generated illustration of cotton swatches with different levels of soiling",
-    altZh: "AI 生成的不同污渍程度棉布样片示意图",
+    alt: "Illustration of cotton swatches with different levels of soiling",
+    altZh: "不同污渍程度棉布样片示意图",
     title: "Textile and fiber cleaning",
     titleZh: "纺织纤维清洁",
     question:
@@ -41,16 +37,12 @@ const cases = [
       "A formulation team could wash matched carbon-black cotton swatches under the same conditions with two detergents. Before-and-after images taken under fixed lighting could map residual stains, using clean cotton as a color reference. The team could then select formulations for repeat testing.",
     bodyZh:
       "配方团队可以把同批炭黑污布分组，在相同条件下比较两种洗涤配方。一个可行的影像分析任务，是在固定照明下拍摄洗前和洗后的布样，标出残留污渍区域，再用洁净棉布校正底色。团队可以据此挑选值得重复测试的配方。",
-    source: "https://doi.org/10.1007/s11743-015-1722-6",
-    sourceTitle:
-      "Optimisation of Detergent Ingredients for Stain Removal Using Statistical Modelling",
-    sourceTitleZh: "使用统计建模优化去污洗涤剂成分",
   },
   {
     id: "semiconductor-sensing",
     image: "blue-microspheres.jpg",
-    alt: "AI-generated illustration of blue microspheres moving through a sensor channel",
-    altZh: "AI 生成的蓝色微球在传感器流道中运动的示意图",
+    alt: "Illustration of blue microspheres moving through a sensor channel",
+    altZh: "蓝色微球在传感器流道中运动的示意图",
     title: "Semiconductor particle sensing",
     titleZh: "半导体颗粒传感",
     question:
@@ -62,9 +54,6 @@ const cases = [
       "Microbubbles can interfere with optical particle counts. A proposed analysis would align count trends with sampling, tubing changes, and venting records to flag intervals for retesting. Engineers could compare repeat samples before and after venting to decide whether to investigate an upstream contamination source.",
     bodyZh:
       "微气泡可能干扰光学颗粒计数。一个可探索的数据分析任务，是把计数趋势与取样、换管和排气记录对齐，标出需要复测的时段。工程师可以比较排气前后的重复取样结果，再判断是否需要追查上游污染源。",
-    source: "https://tsi.com/products/liquid-particle-instrument",
-    sourceTitle: "TSI Liquid Particle Instrument",
-    sourceTitleZh: "TSI 液体颗粒仪器",
   },
 ];
 ---
@@ -108,9 +97,6 @@ const cases = [
                 height="1254"
                 loading="lazy"
               />
-              <figcaption data-zh="AI 生成的场景示意图">
-                AI-generated scene illustration
-              </figcaption>
             </figure>
             <div class="application-case-copy">
               <span class="application-label" data-zh="正在探索">
@@ -122,16 +108,6 @@ const cases = [
               </p>
               <h3 data-zh={item.caseTitleZh}>{item.caseTitle}</h3>
               <p data-zh={item.bodyZh}>{item.body}</p>
-              <a
-                class="application-source"
-                href={item.source}
-                target="_blank"
-                rel="noreferrer"
-                data-zh={item.sourceTitleZh}
-              >
-                {item.sourceTitle}
-                <Icon name="diagonal" size={15} />
-              </a>
             </div>
           </article>
         ))}
