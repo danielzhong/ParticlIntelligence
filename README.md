@@ -1,24 +1,57 @@
 # Particle Intelligence
 
-Particle Intelligence is developing particle behavior modeling, AI-assisted microfluidic design, and 3D printing for research and industry.
+The public website for Particle Intelligence, built with Astro and deployed to
+[partintell.com](https://partintell.com/). The site presents the team, research
+directions, Phora, and microfluidic design work in English and Chinese.
 
-## Run locally
+## Requirements
 
-Install **Git, Node.js 24, and npm**, then run:
+- Node.js 24 (Node.js 22.12 or newer is supported)
+- npm
+
+## Local development
 
 ```bash
-git clone https://github.com/danielzhong/FluidFabs.git
-cd FluidFabs
+git clone https://github.com/danielzhong/ParticlIntelligence.git
+cd ParticlIntelligence
 npm ci
 npm run dev
 ```
 
-Open **http://localhost:4321**, or the address shown in your terminal. Press **Ctrl+C** in the terminal to stop the server.
+Astro prints the local URL in the terminal, usually `http://localhost:4321`.
+
+## Project commands
+
+| Command           | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| `npm run dev`     | Start the local development server            |
+| `npm run check`   | Check Astro and TypeScript files              |
+| `npm run build`   | Generate the static website in `dist/`        |
+| `npm run preview` | Preview the production build locally          |
+| `npm test`        | Run the Playwright browser checks             |
+| `npm run format`  | Format source files and project configuration |
+
+## Project layout
+
+- `src/pages/` contains the website pages.
+- `src/layouts/` contains shared layouts and navigation.
+- `src/config/` contains site details, navigation, and theme settings.
+- `src/styles/` contains the site styles.
+- `public/media/` contains published image and video assets.
+- `tests/` contains browser checks for the public site.
 
 ## Deployment
 
-The GitHub Pages workflow builds the static site with `/FluidFabs` as its deployment base path.
+Pushing to `main` starts the GitHub Pages workflow in
+`.github/workflows/deploy.yml`. The workflow checks and builds the site with
+`https://partintell.com` as its canonical domain. Pull requests can be built
+locally with `npm run check && npm run build`.
 
-## Public content
+Contact links open a draft in the visitor’s email application. The website does
+not accept or store contact form submissions.
 
-The Phora demo is intentionally a review placeholder until approved experimental footage and model previews are available. Do not publish unpublished research material, unverified performance claims, or partner and team details without confirmation.
+## Acknowledgements
+
+Some layout components are adapted from the Automark Astro theme by Themefisher.
+The original theme license and attribution are included in
+[`LICENSE-THEMEFISHER`](LICENSE-THEMEFISHER).

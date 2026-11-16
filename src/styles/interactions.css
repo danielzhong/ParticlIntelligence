@@ -18,7 +18,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  :root[data-theme] :is(.button, .project-dialog .inquiry-submit) {
+  :root[data-theme] .button {
     transition:
       transform 320ms var(--interaction-ease),
       background 240ms ease,
@@ -35,13 +35,12 @@
   }
 
   :root[data-theme]
-    :is(.button > svg, .text-button > svg, .inquiry-submit > svg) {
+    :is(.button > svg, .text-button > svg) {
     transition: translate 350ms var(--interaction-ease);
   }
 
   :root[data-theme]
-    :is(.button, .text-button, .inquiry-submit):is(:hover, :focus-visible)
-    > svg {
+    :is(.button, .text-button):is(:hover, :focus-visible) > svg {
     translate: 3px 0;
   }
 
@@ -120,8 +119,7 @@
       .chip-layer,
       .design-window,
       .iteration-v,
-      .iteration-arrow,
-      .cta-chip
+      .iteration-arrow
     ) {
     transition:
       translate 600ms var(--interaction-ease),
@@ -178,11 +176,6 @@
     border-color: var(--interaction-edge);
   }
 
-  :root[data-theme] .cta-card:is(:hover, :focus-within) .cta-chip {
-    translate: 0 -5px;
-    rotate: 2deg;
-  }
-
   @keyframes channel-flow {
     from {
       stroke-dasharray: 14 6;
@@ -208,8 +201,7 @@
 
 /* Reset earlier hover movement too, without removing the illustrations' tilts. */
 @media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
-  :root[data-theme] :is(.button, .value-card, .back-to-top):hover,
-  :root[data-theme] .project-dialog .inquiry-submit:hover {
+  :root[data-theme] :is(.button, .value-card, .back-to-top):hover {
     transform: none;
   }
 

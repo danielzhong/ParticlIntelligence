@@ -4,9 +4,9 @@ import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
 
 const videos = [
-  "4dcc0c946960d6fe264371d63214e09d.mp4",
-  "dfafea134f07df77524eb9eb0e9cb104.mp4",
-  "f4997c4b96f6014cf07e2ec4d12a80a6.mp4",
+  "phora-comparison-01.mp4",
+  "phora-comparison-02.mp4",
+  "phora-comparison-03.mp4",
 ];
 ---
 
@@ -51,7 +51,12 @@ const videos = [
         </div>
 
         <div class="demo-content">
-          <div class="demo-tabs" role="group" aria-label="Choose a comparison video" data-zh-aria-label="选择对照视频">
+          <div
+            class="demo-tabs"
+            role="group"
+            aria-label="Choose a comparison video"
+            data-zh-aria-label="选择对照视频"
+          >
             {videos.map((video, index) => (
               <button
                 class="demo-tab"
@@ -79,7 +84,10 @@ const videos = [
           >
             Your browser does not support embedded video.
           </video>
-          <p class="demo-note" data-zh="模型演示从实验影像中的一个时刻初始化，不包含此后持续进入视野的颗粒。">
+          <p
+            class="demo-note"
+            data-zh="模型演示从实验影像中的一个时刻初始化，不包含此后持续进入视野的颗粒。"
+          >
             The model demonstration is initialized from an experimental frame
             and does not include particles entering the field afterward.
           </p>
@@ -88,7 +96,9 @@ const videos = [
 
       <div class="contact-cta">
         <div>
-          <h2 data-zh="想进一步了解 Phora？">Want to learn more about Phora?</h2>
+          <h2 data-zh="想进一步了解 Phora？">
+            Want to learn more about Phora?
+          </h2>
           <p data-zh="欢迎联系 Particle Intelligence，讨论研究需求与合作机会。">
             Talk with Particle Intelligence about research needs and
             collaboration.
@@ -111,7 +121,10 @@ const videos = [
         <h2 data-zh="AI 辅助微流控芯片设计与 3D 打印。">
           AI-assisted microfluidic design and 3D printing.
         </h2>
-        <p class="page-lead" data-zh="从实验需求出发，我们探索用 AI 辅助设计和 3D 打印制作微流控芯片原型，再用实验反馈改进下一版设计。">
+        <p
+          class="page-lead"
+          data-zh="从实验需求出发，我们探索用 AI 辅助设计和 3D 打印制作微流控芯片原型，再用实验反馈改进下一版设计。"
+        >
           Starting with an experimental question, we explore AI-assisted design
           and 3D printing for microfluidic chip prototypes. Experimental
           feedback can inform the next design.
@@ -140,8 +153,9 @@ const videos = [
   const player = document.querySelector<HTMLVideoElement>(
     "#phora-comparison-video",
   );
-  document.querySelectorAll<HTMLButtonElement>("[data-phora-video]").forEach(
-    (button) => {
+  document
+    .querySelectorAll<HTMLButtonElement>("[data-phora-video]")
+    .forEach((button) => {
       button.addEventListener("click", () => {
         if (!player || !button.dataset.videoSrc) return;
         document
@@ -154,6 +168,5 @@ const videos = [
         player.src = button.dataset.videoSrc;
         player.load();
       });
-    },
-  );
+    });
 </script>
