@@ -2,7 +2,7 @@ export const site = {
   name: "Particle Intelligence",
   tagline: "Understand particle behavior. Explore possibilities at the microscale.",
   taglineZh: "理解颗粒行为，探索微尺度的可能性。",
-  email: "danielzhong2000@gmail.com",
+  email: "contact@partintell.com",
   description:
     "Particle Intelligence is developing particle behavior modeling, AI-assisted microfluidic design, and 3D printing for research and industry.",
   descriptionZh:

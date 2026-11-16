@@ -210,7 +210,7 @@ test("partnership inquiry validates, downloads an accurate brief and restores fo
   expect(text).toContain("Interest: Research partnership");
   expect(text).toContain(context);
   expect(text).toContain("Particle behavior, made visible.");
-  expect(text).toContain("Contact: danielzhong2000@gmail.com");
+  expect(text).toContain("Contact: contact@partintell.com");
   await expect(dialog.getByRole("status")).toContainText("ready to download");
   expect(
     await dialog.evaluate(
