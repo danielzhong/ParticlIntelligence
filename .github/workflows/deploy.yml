@@ -16,8 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SITE_URL: https://danielzhong.github.io
-      BASE_PATH: /FluidFabs
+      SITE_URL: https://partintell.com
+      BASE_PATH: /
       ASTRO_TELEMETRY_DISABLED: "1"
     steps:
       - name: Check out the repository
