@@ -28,7 +28,6 @@ Astro prints the local URL in the terminal, usually `http://localhost:4321`.
 | `npm run check`   | Check Astro and TypeScript files              |
 | `npm run build`   | Generate the static website in `dist/`        |
 | `npm run preview` | Preview the production build locally          |
-| `npm test`        | Run the Playwright browser checks             |
 | `npm run format`  | Format source files and project configuration |
 
 ## Project layout
@@ -38,7 +37,6 @@ Astro prints the local URL in the terminal, usually `http://localhost:4321`.
 - `src/config/` contains site details, navigation, and theme settings.
 - `src/styles/` contains the site styles.
 - `public/media/` contains published image and video assets.
-- `tests/` contains browser checks for the public site.
 
 ## Deployment
 
