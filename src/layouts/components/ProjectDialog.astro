@@ -52,7 +52,12 @@ const contactEmail = site.email;
   <form id="project-inquiry-form">
     <div class="form-trap" aria-hidden="true">
       <label for="project-website">Leave this field empty</label>
-      <input id="project-website" name="website" tabindex="-1" autocomplete="off" />
+      <input
+        id="project-website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
     </div>
     <div class="form-row">
       <label>
@@ -152,7 +157,8 @@ const contactEmail = site.email;
     <label class="consent-label">
       <input name="consent" type="checkbox" value="yes" required />
       <span data-zh="我同意 Particle Intelligence 保存这些信息，以便回复我的咨询。">
-        I agree that Particle Intelligence may store these details to respond to my inquiry.
+        I agree that Particle Intelligence may store these details to respond to
+        my inquiry.
       </span>
     </label>
 
@@ -197,9 +203,10 @@ const contactEmail = site.email;
 
     <p
       class="submission-note"
-      data-zh="提交后，信息将安全保存，用于回复你的咨询。也可以直接发邮件。"
+      data-zh="提交后，信息将保存并用于回复你的咨询。也可以直接发邮件。"
     >
-      Your details are stored securely and used to respond to your inquiry. You can also email us directly.
+      Your details are stored and used to respond to your inquiry. You can also
+      email us directly.
     </p>
     <div class="inquiry-status" role="status" aria-live="polite" hidden></div>
   </form>
@@ -314,13 +321,19 @@ const contactEmail = site.email;
         statusKind === "sending"
           ? localize("Sending your inquiry…", "正在提交咨询…")
           : statusKind === "sent"
-            ? localize("Thanks — your inquiry has been received. We’ll reply by email.", "感谢提交，我们已收到咨询，会通过邮件回复你。")
+            ? localize(
+                "Thanks — your inquiry has been received. We’ll reply by email.",
+                "感谢提交，我们已收到咨询，会通过邮件回复你。",
+              )
             : statusKind === "error"
-              ? localize(`We couldn’t submit your inquiry. Please try again or email ${recipient}.`, `提交失败，请重试或发送邮件至 ${recipient}。`)
+              ? localize(
+                  `We couldn’t submit your inquiry. Please try again or email ${recipient}.`,
+                  `提交失败，请重试或发送邮件至 ${recipient}。`,
+                )
               : localize(
-              `Your brief is ready to download. Email the file to ${recipient} to share your interest with us.`,
-              `咨询简介已准备好下载。请将文件发送至 ${recipient}，告诉我们你感兴趣的方向。`,
-            );
+                  `Your brief is ready to download. Email the file to ${recipient} to share your interest with us.`,
+                  `咨询简介已准备好下载。请将文件发送至 ${recipient}，告诉我们你感兴趣的方向。`,
+                );
       status.hidden = false;
     };
 
