@@ -2,6 +2,12 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
+
+const videos = [
+  "4dcc0c946960d6fe264371d63214e09d.mp4",
+  "dfafea134f07df77524eb9eb0e9cb104.mp4",
+  "f4997c4b96f6014cf07e2ec4d12a80a6.mp4",
+];
 ---
 
 <PageLayout
@@ -12,63 +18,142 @@ import { withBase } from "../lib/paths";
 >
   <section class="section" id="phora">
     <div class="container">
-      <span class="eyebrow" data-zh="颗粒行为建模 · 研发中">PARTICLE BEHAVIOR MODELING · IN DEVELOPMENT</span>
-      <h1 data-zh="Phora：探索颗粒在不同环境中的行为。">Phora: explore particle behavior across environments.</h1>
-      <p class="page-lead" data-zh="Phora 是我们正在开发的颗粒行为建模工具，旨在结合实验信息、物理建模和机器学习，帮助研究人员探索颗粒在不同环境中的运动和分布。">
-        Phora is our particle behavior modeling tool in development. It is intended to combine experimental information, physical modeling, and machine learning to help researchers explore particle motion and distributions in different environments.
+      <span class="eyebrow" data-zh="颗粒行为建模 · 研发中">
+        PARTICLE BEHAVIOR MODELING · IN DEVELOPMENT
+      </span>
+      <h1 data-zh="Phora：探索颗粒在不同环境中的行为。">
+        Phora: explore particle behavior across environments.
+      </h1>
+      <p
+        class="page-lead"
+        data-zh="Phora 是我们正在开发的颗粒行为建模工具。我们将实验观察与物理建模、机器学习结合，探索颗粒在不同环境中的运动和分布。"
+      >
+        Phora is our particle behavior modeling tool in development. We bring
+        experimental observations, physical modeling, and machine learning
+        together to explore particle motion and distribution across
+        environments.
       </p>
 
       <div class="demo-shell" aria-labelledby="phora-demo-title">
         <div class="demo-heading">
           <div>
-            <span class="eyebrow" data-zh="演示预览">DEMO PREVIEW</span>
-            <h2 id="phora-demo-title" data-zh="Phora 演示正在准备中。">A Phora demo is being prepared.</h2>
+            <span class="eyebrow" data-zh="产品介绍 · 研发中">
+              PRODUCT OVERVIEW · IN DEVELOPMENT
+            </span>
+            <h2 id="phora-demo-title" data-zh="观看实验与模型预测的对照。">
+              Compare an experiment with a model prediction.
+            </h2>
           </div>
-          <p data-zh="经过审核的视频和演示内容将在获准公开后放在这里。">
-            Reviewed video and demo materials will appear here when approved for public release.
+          <p data-zh="选择一段影像，观看真实实验和同一场景的 Phora 模型预测。">
+            Select a recording to compare the experiment with the Phora model
+            prediction for the same scene.
           </p>
         </div>
-        <div class="demo-preview">
-          <div class="demo-panel">
-            <span class="demo-panel-label">EXPERIMENT</span>
-            <div class="demo-placeholder" data-zh="实验视频待审核后发布。">Experimental footage pending review</div>
+
+        <div class="demo-content">
+          <div class="demo-tabs" role="group" aria-label="Choose a comparison video" data-zh-aria-label="选择对照视频">
+            {videos.map((video, index) => (
+              <button
+                class="demo-tab"
+                type="button"
+                data-phora-video
+                data-video-src={withBase(`/media/${video}`)}
+                aria-pressed={index === 0 ? "true" : "false"}
+              >
+                <span data-zh={`视频 ${index + 1}`}>Video {index + 1}</span>
+              </button>
+            ))}
           </div>
-          <div class="demo-panel">
-            <span class="demo-panel-label">PHORA V1 | MODEL PREDICTION</span>
-            <div class="demo-placeholder" data-zh="模型演示待审核后发布。">Model preview pending review</div>
+          <div class="comparison-labels">
+            <span data-zh="真实实验结果">EXPERIMENT</span>
+            <span data-zh="Phora 模型预测">PHORA MODEL PREDICTION</span>
           </div>
+          <video
+            id="phora-comparison-video"
+            controls
+            playsinline
+            preload="metadata"
+            src={withBase(`/media/${videos[0]}`)}
+            aria-label="Phora experiment and model prediction comparison"
+            data-zh-aria-label="Phora 实验与模型预测对照视频"
+          >
+            Your browser does not support embedded video.
+          </video>
+          <p class="demo-note" data-zh="模型演示从实验影像中的一个时刻初始化，不包含此后持续进入视野的颗粒。">
+            The model demonstration is initialized from an experimental frame
+            and does not include particles entering the field afterward.
+          </p>
         </div>
-        <p class="demo-note" data-zh="Phora 仍在研发中。演示素材及其说明将在审核后发布。">
-          Phora is in development. Demo materials and their accompanying notes will be published after review.
-        </p>
       </div>
+
       <div class="contact-cta">
         <div>
-          <h2 data-zh="想讨论研究问题或演示内容？">Have a research question or demo inquiry?</h2>
-          <p data-zh="欢迎联系 Particle Intelligence，讨论研究需求与合作机会。">Talk with Particle Intelligence about research needs and collaboration.</p>
+          <h2 data-zh="想进一步了解 Phora？">Want to learn more about Phora?</h2>
+          <p data-zh="欢迎联系 Particle Intelligence，讨论研究需求与合作机会。">
+            Talk with Particle Intelligence about research needs and
+            collaboration.
+          </p>
         </div>
         <a class="button button-primary" href={withBase("/contact/")}>
-          <span data-zh="联系团队">Contact the team</span><Icon name="arrow" size={18} />
+          <span data-zh="联系团队">Contact the team</span>
+          <Icon name="arrow" size={18} />
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section application-section" id="microfluidics">
-    <div class="container">
-      <div class="page-section-heading">
-        <span class="eyebrow" data-zh="微流控芯片设计 · 探索中">MICROFLUIDIC CHIP DESIGN · EXPLORING</span>
-        <h2 data-zh="从实验需求出发，探索芯片原型。">Start with experimental needs. Explore chip prototypes.</h2>
-        <p class="page-lead" data-zh="我们正在探索如何将 AI 辅助设计、建模与 3D 打印结合，帮助研究团队把微流控芯片概念逐步推进到原型。">
-          We are exploring how AI-assisted design, modeling, and 3D printing can help research teams move microfluidic chip concepts toward prototypes.
+  <section class="section application-section" id="chips">
+    <div class="container chip-design-layout">
+      <div class="chip-design-copy">
+        <span class="eyebrow" data-zh="微流控芯片设计 · 探索中">
+          MICROFLUIDIC CHIP DESIGN · EXPLORING
+        </span>
+        <h2 data-zh="AI 辅助微流控芯片设计与 3D 打印。">
+          AI-assisted microfluidic design and 3D printing.
+        </h2>
+        <p class="page-lead" data-zh="从实验需求出发，我们探索用 AI 辅助设计和 3D 打印制作微流控芯片原型，再用实验反馈改进下一版设计。">
+          Starting with an experimental question, we explore AI-assisted design
+          and 3D printing for microfluidic chip prototypes. Experimental
+          feedback can inform the next design.
         </p>
+        <a class="section-link" href={withBase("/contact/")}>
+          <span data-zh="讨论芯片设计需求">Discuss chip design needs</span>
+          <Icon name="arrow" size={18} />
+        </a>
       </div>
-      <div class="about-values">
-        <article class="about-value"><span class="direction-number">01 / NEED</span><h2 data-zh="理解实验需求">Understand the experiment</h2><p data-zh="从研究问题和实验约束开始，共同厘清芯片需要支持的工作。">Begin with the research question and experimental constraints.</p></article>
-        <article class="about-value"><span class="direction-number">02 / DESIGN</span><h2 data-zh="探索设计方案">Explore design options</h2><p data-zh="围绕实验目标探索微流控芯片设计与建模方向。">Explore microfluidic design and modeling options around the experimental goal.</p></article>
-        <article class="about-value"><span class="direction-number">03 / PROTOTYPE</span><h2 data-zh="推进原型研究">Move toward a prototype</h2><p data-zh="研究如何通过 3D 打印和实验反馈支持后续迭代。">Investigate how 3D printing and experimental feedback can inform future iterations.</p></article>
-      </div>
-      <p class="application-note" data-zh="芯片设计和打印的具体服务范围仍需根据项目需求确认。">The scope of chip design and printing support is determined with each project.</p>
+      <figure class="chip-design-image">
+        <img
+          src={withBase("/media/chip.jpg")}
+          alt="Microfluidic chip concept illustration"
+          data-zh-alt="微流控芯片概念示意图"
+          width="1254"
+          height="1254"
+          loading="lazy"
+        />
+        <figcaption data-zh="概念示意图">Concept illustration</figcaption>
+      </figure>
     </div>
   </section>
 </PageLayout>
+
+<script>
+  const player = document.querySelector<HTMLVideoElement>(
+    "#phora-comparison-video",
+  );
+  document.querySelectorAll<HTMLButtonElement>("[data-phora-video]").forEach(
+    (button) => {
+      button.addEventListener("click", () => {
+        if (!player || !button.dataset.videoSrc) return;
+        document
+          .querySelectorAll<HTMLButtonElement>("[data-phora-video]")
+          .forEach((tab) =>
+            tab.setAttribute("aria-pressed", String(tab === button)),
+          );
+        player.pause();
+        player.currentTime = 0;
+        player.src = button.dataset.videoSrc;
+        player.load();
+      });
+    },
+  );
+</script>

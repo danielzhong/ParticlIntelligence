@@ -2,54 +2,157 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
+
+const cases = [
+  {
+    id: "drug-delivery",
+    image: "liposome.jpg",
+    alt: "AI-generated cutaway illustration of a liposomal carrier enclosing molecules",
+    altZh: "AI 生成的脂质体载体剖面示意图，内部包裹分子",
+    title: "Drug transport and delivery",
+    titleZh: "药物输运与递送",
+    question:
+      "Where do drug particles accumulate, and how do they disperse as the medium or channel changes?",
+    questionZh: "当介质或通道条件改变时，药物颗粒会在哪里聚集，又如何扩散？",
+    caseTitle: "Drug delivery research · Branching channels",
+    caseTitleZh: "药物递送研究团队 · 分叉通道实验",
+    body:
+      "A delivery team could compare two sizes of tracer particles in the same branching chip. Video tracking could estimate the fraction reaching each outlet, with manual counts on selected frames. The comparison could help the team choose a size for its next flow experiment.",
+    bodyZh:
+      "递送研发团队可以让两种粒径的示踪颗粒分别流过同一块分叉芯片。一个可尝试的影像分析任务，是追踪颗粒经过分叉的路径，统计每个出口的颗粒占比，再用人工计数抽查。这样可以帮助团队判断哪种粒径值得在下一轮流动实验中继续研究。",
+    source: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4111996/",
+    sourceTitle:
+      "Characterization of nanoparticle delivery in microcirculation using a microfluidic device",
+    sourceTitleZh: "使用微流控装置表征微循环中的纳米颗粒递送",
+  },
+  {
+    id: "textile-cleaning",
+    image: "cotton.jpg",
+    alt: "AI-generated illustration of cotton swatches with different levels of soiling",
+    altZh: "AI 生成的不同污渍程度棉布样片示意图",
+    title: "Textile and fiber cleaning",
+    titleZh: "纺织纤维清洁",
+    question:
+      "Which formulation leaves less carbon black on the same cotton fabric?",
+    questionZh: "相同棉布上的炭黑污渍，用哪种配方清洗后残留更少？",
+    caseTitle: "Detergent formulation · Soiled cotton swatches",
+    caseTitleZh: "洗涤配方团队 · 标准污布筛选",
+    body:
+      "A formulation team could wash matched carbon-black cotton swatches under the same conditions with two detergents. Before-and-after images taken under fixed lighting could map residual stains, using clean cotton as a color reference. The team could then select formulations for repeat testing.",
+    bodyZh:
+      "配方团队可以把同批炭黑污布分组，在相同条件下比较两种洗涤配方。一个可行的影像分析任务，是在固定照明下拍摄洗前和洗后的布样，标出残留污渍区域，再用洁净棉布校正底色。团队可以据此挑选值得重复测试的配方。",
+    source: "https://doi.org/10.1007/s11743-015-1722-6",
+    sourceTitle:
+      "Optimisation of Detergent Ingredients for Stain Removal Using Statistical Modelling",
+    sourceTitleZh: "使用统计建模优化去污洗涤剂成分",
+  },
+  {
+    id: "semiconductor-sensing",
+    image: "blue-microspheres.jpg",
+    alt: "AI-generated illustration of blue microspheres moving through a sensor channel",
+    altZh: "AI 生成的蓝色微球在传感器流道中运动的示意图",
+    title: "Semiconductor particle sensing",
+    titleZh: "半导体颗粒传感",
+    question:
+      "Is a spike in ultrapure-water particle counts caused by contamination or bubbles?",
+    questionZh: "超纯水颗粒计数突然升高，是污染信号，还是取样时混入了微气泡？",
+    caseTitle: "Fab water quality · Investigating a count spike",
+    caseTitleZh: "晶圆厂水质团队 · 排查异常计数",
+    body:
+      "Microbubbles can interfere with optical particle counts. A proposed analysis would align count trends with sampling, tubing changes, and venting records to flag intervals for retesting. Engineers could compare repeat samples before and after venting to decide whether to investigate an upstream contamination source.",
+    bodyZh:
+      "微气泡可能干扰光学颗粒计数。一个可探索的数据分析任务，是把计数趋势与取样、换管和排气记录对齐，标出需要复测的时段。工程师可以比较排气前后的重复取样结果，再判断是否需要追查上游污染源。",
+    source: "https://tsi.com/products/liquid-particle-instrument",
+    sourceTitle: "TSI Liquid Particle Instrument",
+    sourceTitleZh: "TSI 液体颗粒仪器",
+  },
+];
 ---
 
 <PageLayout
   name="Applications"
   nameZh="应用场景"
-  description="Explore research areas for particle behavior modeling and microfluidic experimental design."
-  descriptionZh="了解颗粒行为建模与微流控实验设计正在探索的研究方向。"
+  description="Explore research questions in drug delivery, textile cleaning, and semiconductor particle sensing."
+  descriptionZh="了解药物递送、纺织清洁和半导体颗粒传感领域正在探索的研究问题。"
 >
   <section class="section">
     <div class="container">
-      <span class="eyebrow" data-zh="从研究问题开始">START WITH A RESEARCH QUESTION</span>
-      <h1 data-zh="正在探索的应用场景。">Applications we are exploring.</h1>
-      <p class="page-lead" data-zh="颗粒行为和实验设计会因具体环境而异。我们正在与科研和产业团队探索这些方向中的问题与需求。">
-        Particle behavior and experimental design depend on their setting. We are exploring questions and needs in these areas with research and industry teams.
+      <span class="eyebrow" data-zh="从研究问题开始">
+        START WITH A RESEARCH QUESTION
+      </span>
+      <h1 data-zh="颗粒运动的应用场景。">Applications of particle motion.</h1>
+      <p
+        class="page-lead"
+        data-zh="选择一个方向，看看我们正在探索的研究问题。这些示例用于说明潜在的研究场景，并不代表已验证的产品应用或性能。"
+      >
+        Explore the questions guiding our work in each field. These examples
+        illustrate possible research contexts; they are not validated product
+        applications or performance claims.
       </p>
-      <div class="application-grid">
-        <article class="application-card">
-          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
-          <h2 data-zh="药物输运与递送">Drug transport & delivery</h2>
-          <p data-zh="探索颗粒特性、周围环境与输运问题之间的关系，为研究团队讨论实验问题提供建模视角。">
-            Explore how particle properties and surrounding environments relate to transport questions, giving research teams a modeling perspective for experimental planning.
-          </p>
-        </article>
-        <article class="application-card">
-          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
-          <h2 data-zh="纺织纤维与颗粒清洁">Textile, fiber & particle cleaning</h2>
-          <p data-zh="研究颗粒与纤维、流体和微尺度通道之间的相互作用，探索可观察和可测试的实验方案。">
-            Explore interactions among particles, fibers, fluids, and microscale channels to identify observable and testable experiments.
-          </p>
-        </article>
-        <article class="application-card">
-          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
-          <h2 data-zh="半导体颗粒传感">Particle sensing for semiconductors</h2>
-          <p data-zh="探索颗粒传感相关的微流控实验设计问题，以及建模工具可能提供的研究支持。">
-            Explore microfluidic experimental design questions related to particle sensing and where modeling tools may support research.
-          </p>
-        </article>
+
+      <nav class="application-jump" aria-label="Application areas" data-zh-aria-label="应用方向">
+        {cases.map((item) => (
+          <a href={`#${item.id}`} data-zh={item.titleZh}>{item.title}</a>
+        ))}
+      </nav>
+
+      <div class="application-cases">
+        {cases.map((item, index) => (
+          <article class="application-case" id={item.id}>
+            <figure class="application-case-image">
+              <img
+                src={withBase(`/media/${item.image}`)}
+                alt={item.alt}
+                data-zh-alt={item.altZh}
+                width="1254"
+                height="1254"
+                loading="lazy"
+              />
+              <figcaption data-zh="AI 生成的场景示意图">
+                AI-generated scene illustration
+              </figcaption>
+            </figure>
+            <div class="application-case-copy">
+              <span class="application-label" data-zh="正在探索">
+                AREA OF EXPLORATION · 0{index + 1}
+              </span>
+              <h2 data-zh={item.titleZh}>{item.title}</h2>
+              <p class="application-question" data-zh={item.questionZh}>
+                {item.question}
+              </p>
+              <h3 data-zh={item.caseTitleZh}>{item.caseTitle}</h3>
+              <p data-zh={item.bodyZh}>{item.body}</p>
+              <a
+                class="application-source"
+                href={item.source}
+                target="_blank"
+                rel="noreferrer"
+                data-zh={item.sourceTitleZh}
+              >
+                {item.sourceTitle}
+                <Icon name="diagonal" size={15} />
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
-      <p class="application-note" data-zh="以上均为正在探索的研究方向，并非已验证的产品应用或性能承诺。">
-        These are areas of exploration, not validated product applications or performance claims.
+
+      <p class="application-note" data-zh="以上均为正在探索的研究方向和讨论示例，不是已验证的产品应用或性能承诺。">
+        These are research directions and discussion examples under
+        exploration, not validated product applications or performance claims.
       </p>
+
       <div class="contact-cta">
         <div>
           <h2 data-zh="你的应用场景是什么？">What is your application context?</h2>
-          <p data-zh="分享研究需求，一起判断是否适合开展交流。">Tell us about your research needs and we can explore whether there is a fit.</p>
+          <p data-zh="分享研究需求，一起判断是否适合开展交流。">
+            Tell us about your research needs and we can explore whether there
+            is a fit.
+          </p>
         </div>
         <a class="button button-primary" href={withBase("/contact/")}>
-          <span data-zh="讨论合作">Discuss a collaboration</span><Icon name="arrow" size={18} />
+          <span data-zh="讨论合作">Discuss a collaboration</span>
+          <Icon name="arrow" size={18} />
         </a>
       </div>
     </div>
