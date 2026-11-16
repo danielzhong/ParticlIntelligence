@@ -37,15 +37,14 @@ const contactEmail = site.email;
     <span class="dialog-eyebrow" data-zh="一起探索颗粒建模的下一步">
       HELP SHAPE WHAT’S NEXT
     </span>
-    <h2 id="project-dialog-title" data-zh="与 Fluid Fabs 开启交流。">
-      Connect with Fluid Fabs.
+    <h2 id="project-dialog-title" data-zh="联系 Particle Intelligence。">
+      Connect with Particle Intelligence.
     </h2>
     <p
       id="project-dialog-description"
-      data-zh="选择合作试点、投资方演示、产品更新或研究合作，也可以补充你希望讨论的问题。"
+      data-zh="选择你希望讨论的方向，也可以补充相关背景。"
     >
-      Choose a research pilot, investor walkthrough, product updates, or a
-      partnership discussion. Share any context you’d like us to know.
+      Choose a topic and share a little context about what you are exploring.
     </p>
   </div>
 
@@ -104,17 +103,17 @@ const contactEmail = site.email;
           Interest
         </label>
         <select id="project-application" name="application">
-          <option value="Biotech pilot" data-zh="合作试点">
-            Biotech pilot
+          <option value="Research inquiry" data-zh="科研与 Phora">
+            Research & Phora
           </option>
-          <option value="Investor walkthrough" data-zh="投资方演示">
-            Investor walkthrough
+          <option value="Chip design & prototyping" data-zh="芯片设计与原型">
+            Chip design & prototyping
           </option>
-          <option value="Product updates" data-zh="产品更新">
-            Product updates
+          <option value="Industry collaboration" data-zh="产业合作">
+            Industry collaboration
           </option>
-          <option value="Research partnership" data-zh="研究合作">
-            Research partnership
+          <option value="Investment & strategy" data-zh="投资与战略交流">
+            Investment & strategy
           </option>
         </select>
       </div>
@@ -130,8 +129,8 @@ const contactEmail = site.email;
       <textarea
         name="goals"
         rows="4"
-        placeholder="Share a research question, available data, or what you’d like to learn about the platform."
-        data-zh-placeholder="分享你的研究问题、已有数据，或希望了解的平台信息。"
+        placeholder="Share your research question or collaboration idea."
+        data-zh-placeholder="分享你的研究问题或合作想法。"
         minlength="10"
         maxlength="2000"
         aria-describedby="project-goals-hint"
@@ -140,9 +139,9 @@ const contactEmail = site.email;
     <p
       class="field-hint"
       id="project-goals-hint"
-      data-zh="姓名和邮箱为必填项；项目背景可选填。"
+      data-zh="姓名和邮箱为必填项；咨询背景可选填。"
     >
-      Name and email are required. Project context is optional.
+      Name and email are required. Inquiry details are optional.
     </p>
 
     <div class="form-actions">
@@ -202,8 +201,8 @@ const contactEmail = site.email;
 
 <noscript>
   <p class="no-script-contact">
-    <span data-zh="想了解研究试点、投资方演示或产品更新？">
-      Interested in a pilot, investor walkthrough, or product updates?
+    <span data-zh="想讨论科研、芯片设计或产业合作？">
+      Interested in research, chip design, or industry collaboration?
     </span>{" "}
     <a
       href={`mailto:${contactEmail}?subject=${encodeURIComponent(`${site.name} partnership inquiry`)}`}
@@ -365,7 +364,7 @@ const contactEmail = site.email;
         const url = URL.createObjectURL(file);
         const link = document.createElement("a");
         link.href = url;
-        link.download = "fluid-fabs-project-brief.txt";
+        link.download = "particle-intelligence-project-brief.txt";
         document.body.append(link);
         link.click();
         link.remove();

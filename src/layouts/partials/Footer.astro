@@ -4,7 +4,7 @@ import Icon from "../components/Icon.astro";
 import { site } from "../../config/site";
 import { withBase } from "../../lib/paths";
 import { navigation, isCurrentPage } from "../../config/navigation";
-const links = [...navigation, { label: "FAQs", zh: "常见问题", path: "/faq/" }];
+const links = navigation;
 ---
 
 <footer class="site-footer">
@@ -15,11 +15,11 @@ const links = [...navigation, { label: "FAQs", zh: "常见问题", path: "/faq/"
     </div>
     <nav
       class="footer-links"
-      aria-label="Explore pages"
-      data-zh-aria-label="探索页面"
+      aria-label="Website pages"
+      data-zh-aria-label="网站导航"
     >
-      <span class="footer-label" data-zh="探索">
-        EXPLORE
+      <span class="footer-label" data-zh="了解我们">
+        DISCOVER
       </span>
       {links.map((link) => (
         <a
@@ -34,8 +34,8 @@ const links = [...navigation, { label: "FAQs", zh: "常见问题", path: "/faq/"
       ))}
     </nav>
     <div class="footer-links">
-      <span class="footer-label" data-zh="一起探索下一步">
-        EXPLORE WHAT’S NEXT
+      <span class="footer-label" data-zh="联系 Particle Intelligence">
+        CONTACT PARTICLE INTELLIGENCE
       </span>
       <a href={`mailto:${site.email}`}>
         {site.email} <Icon name="diagonal" size={16} />
@@ -43,7 +43,7 @@ const links = [...navigation, { label: "FAQs", zh: "常见问题", path: "/faq/"
       <button
         class="text-button"
         data-project-trigger
-        data-project-interest="Research partnership"
+        data-project-interest="Research inquiry"
       >
         <span data-zh="开启合作交流">Start a conversation</span>{" "}
         <Icon name="arrow" size={16} />
@@ -56,8 +56,8 @@ const links = [...navigation, { label: "FAQs", zh: "常见问题", path: "/faq/"
     >
       © {new Date().getFullYear()} {site.name}. All rights reserved.
     </span>
-    <span data-zh="示意模型。研发中的平台。">
-      Illustrative models. Platform in development.
+    <span data-zh="研发中的研究方向。">
+      Research directions in development.
     </span>
     <a
       href={withBase("/privacy/")}

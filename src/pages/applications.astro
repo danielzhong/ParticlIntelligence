@@ -1,0 +1,57 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Icon from "../layouts/components/Icon.astro";
+import { withBase } from "../lib/paths";
+---
+
+<PageLayout
+  name="Applications"
+  nameZh="应用场景"
+  description="Explore research areas for particle behavior modeling and microfluidic experimental design."
+  descriptionZh="了解颗粒行为建模与微流控实验设计正在探索的研究方向。"
+>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow" data-zh="从研究问题开始">START WITH A RESEARCH QUESTION</span>
+      <h1 data-zh="正在探索的应用场景。">Applications we are exploring.</h1>
+      <p class="page-lead" data-zh="颗粒行为和实验设计会因具体环境而异。我们正在与科研和产业团队探索这些方向中的问题与需求。">
+        Particle behavior and experimental design depend on their setting. We are exploring questions and needs in these areas with research and industry teams.
+      </p>
+      <div class="application-grid">
+        <article class="application-card">
+          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
+          <h2 data-zh="药物输运与递送">Drug transport & delivery</h2>
+          <p data-zh="探索颗粒特性、周围环境与输运问题之间的关系，为研究团队讨论实验问题提供建模视角。">
+            Explore how particle properties and surrounding environments relate to transport questions, giving research teams a modeling perspective for experimental planning.
+          </p>
+        </article>
+        <article class="application-card">
+          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
+          <h2 data-zh="纺织纤维与颗粒清洁">Textile, fiber & particle cleaning</h2>
+          <p data-zh="研究颗粒与纤维、流体和微尺度通道之间的相互作用，探索可观察和可测试的实验方案。">
+            Explore interactions among particles, fibers, fluids, and microscale channels to identify observable and testable experiments.
+          </p>
+        </article>
+        <article class="application-card">
+          <span class="application-label" data-zh="研究方向">AREA OF EXPLORATION</span>
+          <h2 data-zh="半导体颗粒传感">Particle sensing for semiconductors</h2>
+          <p data-zh="探索颗粒传感相关的微流控实验设计问题，以及建模工具可能提供的研究支持。">
+            Explore microfluidic experimental design questions related to particle sensing and where modeling tools may support research.
+          </p>
+        </article>
+      </div>
+      <p class="application-note" data-zh="以上均为正在探索的研究方向，并非已验证的产品应用或性能承诺。">
+        These are areas of exploration, not validated product applications or performance claims.
+      </p>
+      <div class="contact-cta">
+        <div>
+          <h2 data-zh="你的应用场景是什么？">What is your application context?</h2>
+          <p data-zh="分享研究需求，一起判断是否适合开展交流。">Tell us about your research needs and we can explore whether there is a fit.</p>
+        </div>
+        <a class="button button-primary" href={withBase("/contact/")}>
+          <span data-zh="讨论合作">Discuss a collaboration</span><Icon name="arrow" size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

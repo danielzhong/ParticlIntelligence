@@ -1,0 +1,49 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { site } from "../config/site";
+---
+
+<PageLayout
+  name="Contact"
+  nameZh="联系我们"
+  description="Contact Particle Intelligence about research, microfluidic chip design, industry collaboration, or investment."
+  descriptionZh="联系 Particle Intelligence，讨论科研、微流控芯片设计、产业合作或投资相关事宜。"
+>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow" data-zh="开始一场交流">START A CONVERSATION</span>
+      <h1 data-zh="告诉我们你正在探索什么。">Tell us what you are exploring.</h1>
+      <p class="page-lead" data-zh="欢迎科研人员、芯片设计团队、产业伙伴和投资人联系 Particle Intelligence。简要介绍你的问题，我们会进一步交流。">
+        We welcome inquiries from researchers, chip design teams, industry partners, and investors. Briefly tell Particle Intelligence what you are working on and we can take the conversation from there.
+      </p>
+      <div class="contact-options">
+        <article class="contact-option">
+          <h2 data-zh="科研与 Phora">Research & Phora</h2>
+          <p data-zh="讨论颗粒行为建模、研究问题或实验合作。">Discuss particle behavior modeling, research questions, or experimental collaboration.</p>
+        </article>
+        <article class="contact-option">
+          <h2 data-zh="芯片设计与原型">Chip design & prototyping</h2>
+          <p data-zh="交流微流控芯片设计、建模和 3D 打印需求。">Talk about microfluidic chip design, modeling, and 3D printing needs.</p>
+        </article>
+        <article class="contact-option">
+          <h2 data-zh="产业合作">Industry collaboration</h2>
+          <p data-zh="探索应用场景、研发需求和合作方式。">Explore application contexts, development needs, and collaboration.</p>
+        </article>
+        <article class="contact-option">
+          <h2 data-zh="投资与战略交流">Investment & strategy</h2>
+          <p data-zh="了解公司方向和正在推进的研发工作。">Learn about the company’s direction and work in development.</p>
+        </article>
+      </div>
+      <div class="contact-cta">
+        <div>
+          <h2 data-zh="直接发邮件给我们">Email us directly</h2>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        </div>
+        <button class="button button-primary" data-project-trigger data-project-interest="Research inquiry">
+          <span data-zh="填写简短咨询">Write a short inquiry</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</PageLayout>

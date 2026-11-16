@@ -1,6 +1,6 @@
 <script is:inline>
   (() => {
-    const key = "fluid-fabs-language";
+    const key = "particle-intelligence-language";
     const root = document.documentElement;
     // Translations are trusted, authored markup. Never place form input in data-zh.
     // Capture English once; replacing only these display nodes preserves UI state.
@@ -49,7 +49,7 @@
       });
       activeLanguage = language;
       window.dispatchEvent(
-        new CustomEvent("fluid-fabs:language-change", { detail: { language } }),
+        new CustomEvent("particle-intelligence:language-change", { detail: { language } }),
       );
     };
     applyLanguage(root.lang === "zh-CN" ? "zh" : "en");

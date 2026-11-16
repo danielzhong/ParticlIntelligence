@@ -1,5 +1,5 @@
 export type Language = "en" | "zh";
-export const LANGUAGE_CHANGE_EVENT = "fluid-fabs:language-change";
+export const LANGUAGE_CHANGE_EVENT = "particle-intelligence:language-change";
 
 export function getLanguage(): Language {
   return typeof document !== "undefined" &&

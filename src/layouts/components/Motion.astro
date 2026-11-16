@@ -8,20 +8,9 @@
   const targets = new Map<HTMLElement, number>();
   const groups: [string, number][] = [
     [".hero-content > *", 65],
-    [".research-strip > *", 55],
     [".section-heading > *", 90],
-    [".literature-evidence, .calculation-intro, .particle-explorer", 0],
-    [".platform-card, .page-card", 90],
-    [".center-heading", 0],
-    [".process-card", 100],
-    [".process-bottom", 0],
-    [".experiment-intro > *, .experiment-note", 55],
-    [".experiment-row", 85],
-    [".roadmap-card", 90],
-    [".partner-card", 90],
-    [".updates-card", 0],
-    [".faq-intro, .faq-list", 80],
-    [".cta-card", 0],
+    [".direction-card, .application-card, .about-value", 85],
+    [".demo-shell, .contact-cta", 0],
   ];
 
   groups.forEach(([selector, stagger]) => {

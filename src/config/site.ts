@@ -1,10 +1,10 @@
 export const site = {
-  name: "Fluid Fabs",
-  tagline: "Particle behavior, made visible.",
-  taglineZh: "让颗粒行为清晰可见。",
+  name: "Particle Intelligence",
+  tagline: "Understand particle behavior. Explore possibilities at the microscale.",
+  taglineZh: "理解颗粒行为，探索微尺度的可能性。",
   email: "danielzhong2000@gmail.com",
   description:
-    "An early-stage particle-modeling platform for biotech R&D. Compare published zeta potential and particle-size measurements across media, then explore concentration and diffusion calculations with explicit assumptions.",
+    "Particle Intelligence is developing particle behavior modeling, AI-assisted microfluidic design, and 3D printing for research and industry.",
   descriptionZh:
-    "面向生物科技研发的早期颗粒建模平台。比较文献报告的不同介质中的 Zeta 电位与粒径，再通过明确假设下的示意计算探索浓度变化和扩散时间。",
+    "Particle Intelligence 正在结合颗粒行为建模、AI 辅助微流控设计与 3D 打印，为科研和产业团队探索新的实验与工程方案。",
 };

@@ -1,0 +1,61 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Icon from "../layouts/components/Icon.astro";
+import { withBase } from "../lib/paths";
+import { site } from "../config/site";
+---
+
+<PageLayout
+  name="About"
+  nameZh="关于我们"
+  description="Learn about Particle Intelligence and its vision for particle research and microfluidic design."
+  descriptionZh="了解 Particle Intelligence 的愿景，以及颗粒研究和微流控设计方向。"
+>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow" data-zh="关于 Particle Intelligence">ABOUT PARTICLE INTELLIGENCE</span>
+      <h1 data-zh="让微尺度研究，多一种探索方式。">A new way to explore the microscale.</h1>
+      <p class="page-lead" data-zh={site.descriptionZh}>{site.description}</p>
+
+      <div class="vision-band" style="margin-top: 42px; border-radius: 18px;">
+        <div class="vision-inner">
+          <div>
+            <span class="eyebrow" data-zh="我们的长期愿景">OUR LONG-TERM VISION</span>
+            <h2>Predict. Design. Learn.</h2>
+            <div class="vision-steps"><span data-zh="预测">PREDICT</span><span data-zh="设计">DESIGN</span><span data-zh="学习">LEARN</span></div>
+          </div>
+          <p data-zh="我们希望让颗粒行为建模、实验工具设计与实验反馈形成联系。这是长期愿景，相关能力仍在探索和开发中。">
+            We envision connections between particle behavior modeling, experimental tool design, and experimental feedback. This is a long-term direction; the related capabilities are being explored and developed.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-values">
+        <article class="about-value">
+          <span class="direction-number">01 / RESEARCH</span>
+          <h2 data-zh="从研究问题出发">Start with the research question</h2>
+          <p data-zh="围绕实际研究需求讨论颗粒行为、实验条件和测量目标。">Discuss particle behavior, experimental conditions, and measurement goals in the context of real research needs.</p>
+        </article>
+        <article class="about-value">
+          <span class="direction-number">02 / ENGINEERING</span>
+          <h2 data-zh="连接建模与实验设计">Connect modeling and experiment design</h2>
+          <p data-zh="探索物理建模、机器学习与微流控工程如何帮助提出可检验的问题。">Explore how physical modeling, machine learning, and microfluidic engineering can help frame testable questions.</p>
+        </article>
+        <article class="about-value">
+          <span class="direction-number">03 / COLLABORATION</span>
+          <h2 data-zh="与合作伙伴共同探索">Explore with partners</h2>
+          <p data-zh="研发方向会根据合作项目的需求和实验反馈逐步推进。">Development directions will progress in response to partner needs and experimental feedback.</p>
+        </article>
+      </div>
+      <div class="contact-cta">
+        <div>
+          <h2 data-zh="了解研究背景或合作方式？">Want to learn more or explore working together?</h2>
+          <p data-zh="欢迎与我们讨论你的研究或工程需求。">We welcome a conversation about your research or engineering needs.</p>
+        </div>
+        <a class="button button-primary" href={withBase("/contact/")}>
+          <span data-zh="联系我们">Contact us</span><Icon name="arrow" size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

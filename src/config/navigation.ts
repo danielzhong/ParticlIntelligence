@@ -1,11 +1,10 @@
 import { withBase } from "../lib/paths";
 
 export const navigation = [
-  { label: "Platform", zh: "平台介绍", path: "/platform/" },
-  { label: "Explorer", zh: "交互模型", path: "/explorer/" },
-  { label: "Experiments", zh: "实验展示", path: "/experiments/" },
-  { label: "Roadmap", zh: "开发路线", path: "/roadmap/" },
-  { label: "Partners", zh: "合作交流", path: "/partners/" },
+  { label: "Technology", zh: "技术方向", path: "/technology/" },
+  { label: "Applications", zh: "应用场景", path: "/applications/" },
+  { label: "About", zh: "关于我们", path: "/about/" },
+  { label: "Contact", zh: "联系我们", path: "/contact/" },
 ] as const;
 
 /** Compare complete paths, including the configured deployment base. */
