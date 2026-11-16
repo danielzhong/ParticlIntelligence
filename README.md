@@ -9,8 +9,8 @@ Fluid Fabs is an early-stage particle-modeling concept for biotech R&D. The webs
 Install **Git, Node.js 24, and npm**, then run:
 
 ```bash
-git clone https://github.com/danielzhong/Fluidica.git
-cd Fluidica
+git clone https://github.com/danielzhong/FluidFabs.git
+cd FluidFabs
 npm ci
 npm run dev
 ```
