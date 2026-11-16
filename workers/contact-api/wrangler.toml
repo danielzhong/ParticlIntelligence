@@ -1,0 +1,13 @@
+name = "partintell-contact-api"
+main = "src/index.js"
+compatibility_date = "2026-11-15"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "partintell-contact"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[routes]]
+pattern = "api.partintell.com"
+custom_domain = true
