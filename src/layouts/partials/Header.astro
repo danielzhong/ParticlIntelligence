@@ -4,6 +4,7 @@ import Icon from "../components/Icon.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import LanguageToggle from "../components/LanguageToggle.astro";
 import { withBase } from "../../lib/paths";
+import { site } from "../../config/site";
 import { navigation, isCurrentPage } from "../../config/navigation";
 const links = navigation.map((link) => ({
   ...link,
@@ -31,14 +32,13 @@ const links = navigation.map((link) => ({
       ))}
     </nav>
     <div class="header-actions">
-      <button
+      <a
         class="button button-small button-dark header-cta"
-        data-project-trigger
-        data-project-interest="Research inquiry"
+        href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}
       >
         <span data-zh="联系我们">Let’s talk</span>{" "}
         <Icon name="diagonal" size={17} />
-      </button>
+      </a>
       <LanguageToggle />
       <ThemeToggle />
       <button
@@ -68,14 +68,13 @@ const links = navigation.map((link) => ({
         {link.label}
       </a>
     ))}
-    <button
+    <a
       class="button button-primary"
-      data-project-trigger
-      data-project-interest="Research inquiry"
+      href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}
     >
       <span data-zh="联系我们">Let’s talk</span>{" "}
       <Icon name="arrow" size={18} />
-    </button>
+    </a>
   </nav>
 </header>
 <style>
@@ -129,7 +128,6 @@ const links = navigation.map((link) => ({
   });
   navigation?.querySelectorAll("a, button").forEach((link) =>
     link.addEventListener("click", () => {
-      if (link.hasAttribute("data-project-trigger")) toggle?.focus();
       close();
     }),
   );

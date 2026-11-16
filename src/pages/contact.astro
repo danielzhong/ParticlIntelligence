@@ -39,10 +39,10 @@ import { site } from "../config/site";
           <h2 data-zh="直接发邮件给我们">Email us directly</h2>
           <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
         </div>
-        <button class="button button-primary" data-project-trigger data-project-interest="Research inquiry">
-          <span data-zh="填写简短咨询">Write a short inquiry</span>
+        <a class="button button-primary" href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}>
+          <span data-zh="发送邮件">Send an email</span>
           <span aria-hidden="true">→</span>
-        </button>
+        </a>
       </div>
     </div>
   </section>

@@ -40,14 +40,13 @@ const links = navigation;
       <a href={`mailto:${site.email}`}>
         {site.email} <Icon name="diagonal" size={16} />
       </a>
-      <button
+      <a
         class="text-button"
-        data-project-trigger
-        data-project-interest="Research inquiry"
+        href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}
       >
         <span data-zh="开启合作交流">Start a conversation</span>{" "}
         <Icon name="arrow" size={16} />
-      </button>
+      </a>
     </div>
   </div>
   <div class="container footer-bottom">
