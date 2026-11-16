@@ -2,7 +2,6 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
-import { site } from "../config/site";
 ---
 
 <PageLayout
@@ -13,65 +12,71 @@ import { site } from "../config/site";
 >
   <section class="section">
     <div class="container">
-      <span class="eyebrow" data-zh="关于 Particle Intelligence">
-        ABOUT PARTICLE INTELLIGENCE
-      </span>
-      <h1 data-zh="让微尺度研究，多一种探索方式。">
-        A new way to explore the microscale.
-      </h1>
-      <p class="page-lead" data-zh={site.descriptionZh}>
-        {site.description}
-      </p>
+      <header class="about-intro">
+        <span class="eyebrow" data-zh="我们的故事">
+          OUR STORY
+        </span>
+        <h1 data-zh="我们创立 Particle Intelligence，希望让颗粒运动更容易被理解和探索。">
+          We started Particle Intelligence to make particle motion easier to
+          understand and explore.
+        </h1>
+        <p
+          class="page-lead"
+          data-zh="颗粒在微环境中的运动受到流体、材料和几何条件共同影响。理解这些系统，需要物理、实验科学与计算工具协同工作。"
+        >
+          Particle motion is shaped by the interaction of fluids, materials, and
+          geometry. Understanding these systems calls for physics, experimental
+          science, and computational tools to work together.
+        </p>
+      </header>
 
-      <div class="vision-band" style="margin-top: 42px; border-radius: 18px;">
-        <div class="vision-inner">
-          <div>
-            <span class="eyebrow" data-zh="我们的长期愿景">
-              OUR LONG-TERM VISION
-            </span>
-            <h2>Predict. Design. Learn.</h2>
-            <div class="vision-steps">
-              <span data-zh="预测">PREDICT</span>
-              <span data-zh="设计">DESIGN</span>
-              <span data-zh="学习">LEARN</span>
-            </div>
-          </div>
-          <p data-zh="我们希望让颗粒行为建模、实验工具设计与实验反馈形成联系。这是长期愿景，相关能力仍在探索和开发中。">
-            We envision connections between particle behavior modeling,
-            experimental tool design, and experimental feedback. This is a
-            long-term direction; the related capabilities are being explored and
-            developed.
+      <div class="story-layout">
+        <article class="story-copy">
+          <span class="story-kicker" data-zh="为什么创业">
+            WHY WE STARTED
+          </span>
+          <p data-zh="我们的创始团队来自图形软件与 GPU 编程、微流控与颗粒输运、人工智能、生物力学和金融领域。我们创立这家公司，是想把这些不同的专长汇集起来，做成服务科研与工程团队的软件工具。">
+            Our founders work across graphics software and GPU programming,
+            microfluidics and particle transport, artificial intelligence,
+            biomechanics, and finance. We started this company to bring those
+            disciplines together in software for research and engineering teams.
           </p>
-        </div>
-      </div>
+          <p data-zh="我们正在开发 Phora——颗粒运动模型，以及与研究问题和实验设计相连接的工具。我们的目标是帮助团队系统地探索颗粒行为、比较不同条件，并从实验中持续学习。这些能力仍在开发与验证中。">
+            We are developing Phora, our particle motion model, alongside tools
+            that connect research questions with experiment design. Our aim is
+            to help teams explore particle behavior, compare conditions, and
+            learn from experiments. This work is still in development and
+            validation.
+          </p>
+        </article>
 
-      <div class="about-values">
-        <article class="about-value">
-          <span class="direction-number">01 / RESEARCH</span>
-          <h2 data-zh="从研究问题出发">Start with the research question</h2>
-          <p data-zh="围绕实际研究需求讨论颗粒行为、实验条件和测量目标。">
-            Discuss particle behavior, experimental conditions, and measurement
-            goals in the context of real research needs.
+        <aside class="story-vision">
+          <span class="story-kicker" data-zh="我们的长期方向">
+            OUR LONG-TERM DIRECTION
+          </span>
+          <h2 data-zh="预测。设计。学习。">Predict. Design. Learn.</h2>
+          <ol class="story-steps">
+            <li>
+              <span>01</span>
+              <span data-zh="预测颗粒行为">Predict particle behavior</span>
+            </li>
+            <li>
+              <span>02</span>
+              <span data-zh="设计可检验的实验">
+                Design testable experiments
+              </span>
+            </li>
+            <li>
+              <span>03</span>
+              <span data-zh="从结果中学习">Learn from results</span>
+            </li>
+          </ol>
+          <p data-zh="这是我们正在探索的长期愿景，产品能力将通过研究、验证和合作逐步发展。">
+            This is a long-term vision we are working toward. Product
+            capabilities will develop through research, validation, and
+            collaboration.
           </p>
-        </article>
-        <article class="about-value">
-          <span class="direction-number">02 / ENGINEERING</span>
-          <h2 data-zh="连接建模与实验设计">
-            Connect modeling and experiment design
-          </h2>
-          <p data-zh="探索物理建模、机器学习与微流控工程如何帮助提出可检验的问题。">
-            Explore how physical modeling, machine learning, and microfluidic
-            engineering can help frame testable questions.
-          </p>
-        </article>
-        <article class="about-value">
-          <span class="direction-number">03 / COLLABORATION</span>
-          <h2 data-zh="与合作伙伴共同探索">Explore with partners</h2>
-          <p data-zh="研发方向会根据合作项目的需求和实验反馈逐步推进。">
-            Development directions will progress in response to partner needs
-            and experimental feedback.
-          </p>
-        </article>
+        </aside>
       </div>
 
       <section class="founders-section" aria-labelledby="founders-title">
@@ -82,11 +87,9 @@ import { site } from "../config/site";
           <h2 id="founders-title" data-zh="认识我们的团队">
             Meet the team
           </h2>
-          <p data-zh="团队成员来自软件工程、机械与化学工程、人工智能和金融领域，共同推进颗粒智能研究与产品开发。">
-            Our founding team brings together experience in software
-            engineering, mechanical and chemical engineering, artificial
-            intelligence, and finance to advance particle intelligence research
-            and product development.
+          <p data-zh="认识正在把这些不同领域连接起来、共同开发 Particle Intelligence 的创始团队。">
+            Meet the founders bringing these disciplines together to build
+            Particle Intelligence.
           </p>
         </div>
 
@@ -212,8 +215,81 @@ import { site } from "../config/site";
 </PageLayout>
 
 <style>
+  .about-intro {
+    max-width: 850px;
+    margin-bottom: 38px;
+  }
+  .about-intro h1 {
+    max-width: 820px;
+    margin: 12px 0 18px;
+    font-size: clamp(38px, 6vw, 64px);
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  .about-intro .page-lead {
+    max-width: 740px;
+  }
+  .story-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+  .story-copy,
+  .story-vision {
+    padding: clamp(24px, 3.5vw, 38px);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--surface, #fff);
+  }
+  .story-copy p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+  .story-copy p + p {
+    margin-top: 18px;
+  }
+  .story-kicker {
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+  }
+  .story-vision h2 {
+    margin: 14px 0 20px;
+    font-size: clamp(25px, 3vw, 34px);
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+  }
+  .story-steps {
+    display: grid;
+    gap: 11px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .story-steps li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    color: var(--ink);
+    font-size: 13px;
+  }
+  .story-steps li > span:first-child {
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .story-vision > p {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+  }
   .founders-section {
-    margin-top: 88px;
+    margin-top: 76px;
   }
   .founders-heading {
     max-width: 680px;
@@ -230,14 +306,20 @@ import { site } from "../config/site";
   }
   .founder-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
   .founder-card {
     padding: 27px;
     border: 1px solid var(--line);
     border-radius: 16px;
-    background: var(--paper);
+    background: var(--surface, #fff);
+  }
+  .founder-card:last-child {
+    grid-column: 1 / -1;
+  }
+  .founder-card:last-child p {
+    max-width: 980px;
   }
   .founder-role {
     color: var(--blue);
@@ -252,12 +334,12 @@ import { site } from "../config/site";
   }
   .founder-card p {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.8;
   }
   @media (max-width: 900px) {
-    .founder-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .story-layout {
+      grid-template-columns: 1fr;
     }
   }
   @media (max-width: 600px) {
@@ -266,6 +348,9 @@ import { site } from "../config/site";
     }
     .founder-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .founder-card:last-child {
+      grid-column: auto;
     }
   }
 </style>
