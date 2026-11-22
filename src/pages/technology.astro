@@ -1,5 +1,7 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import MicrofluidicChip from "../layouts/components/MicrofluidicChip.astro";
+import "../styles/research-editorial.css";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
 
@@ -63,6 +65,9 @@ const videos = [
                 type="button"
                 data-phora-video
                 data-video-src={withBase(`/media/${video}`)}
+                data-video-poster={withBase(
+                  `/media/phora-poster-0${index + 1}.jpg`,
+                )}
                 aria-pressed={index === 0 ? "true" : "false"}
               >
                 <span data-zh={`视频 ${index + 1}`}>Video {index + 1}</span>
@@ -78,6 +83,7 @@ const videos = [
             controls
             playsinline
             preload="metadata"
+            poster={withBase("/media/phora-poster-01.jpg")}
             src={withBase(`/media/${videos[0]}`)}
             aria-label="Phora experiment and model prediction comparison"
             data-zh-aria-label="Phora 实验与模型预测对照视频"
@@ -134,17 +140,7 @@ const videos = [
           <Icon name="arrow" size={18} />
         </a>
       </div>
-      <figure class="chip-design-image">
-        <img
-          src={withBase("/media/chip.jpg")}
-          alt="Microfluidic chip concept illustration"
-          data-zh-alt="微流控芯片概念示意图"
-          width="1254"
-          height="1254"
-          loading="lazy"
-        />
-        <figcaption data-zh="概念示意图">Concept illustration</figcaption>
-      </figure>
+      <MicrofluidicChip id="technology-chip" />
     </div>
   </section>
 </PageLayout>
@@ -165,6 +161,7 @@ const videos = [
           );
         player.pause();
         player.currentTime = 0;
+        player.poster = button.dataset.videoPoster || "";
         player.src = button.dataset.videoSrc;
         player.load();
       });

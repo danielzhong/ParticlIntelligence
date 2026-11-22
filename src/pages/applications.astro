@@ -1,59 +1,81 @@
 ---
+import { Image } from "astro:assets";
 import PageLayout from "../layouts/PageLayout.astro";
-import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
-
+import deliveryImage from "../assets/applications/drug-transport-lab.png";
+import textileImage from "../assets/applications/cotton-samples-lab.png";
+import sensingImage from "../assets/applications/particle-monitoring-lab.png";
+import "../styles/research-editorial.css";
 const cases = [
   {
     id: "drug-delivery",
-    image: "liposome.jpg",
-    alt: "Cutaway illustration of a liposomal carrier enclosing molecules",
-    altZh: "脂质体载体剖面示意图，内部包裹分子",
-    title: "Drug transport and delivery",
-    titleZh: "药物输运与递送",
-    question:
-      "Where do drug particles accumulate, and how do they disperse as the medium or channel changes?",
-    questionZh: "当介质或通道条件改变时，药物颗粒会在哪里聚集，又如何扩散？",
-    caseTitle: "Drug delivery research · Branching channels",
-    caseTitleZh: "药物递送研究团队 · 分叉通道实验",
-    body:
-      "A delivery team could compare two sizes of tracer particles in the same branching chip. Video tracking could estimate the fraction reaching each outlet, with manual counts on selected frames. The comparison could help the team choose a size for its next flow experiment.",
+    image: deliveryImage,
+    domain: "Drug transport & delivery",
+    domainZh: "药物输运与递送",
+    label: "PARTICLE TRANSPORT",
+    labelZh: "颗粒输运",
+    question: "How do particle size and flow conditions shape transport?",
+    questionZh: "粒径与流动条件，如何影响颗粒的输运？",
+    body: "Microfluidic experiments offer a way to observe particles in a controlled environment. We’re exploring how video tracking and modeling could help compare particle motion and distribution under different channel and flow conditions.",
     bodyZh:
-      "递送研发团队可以让两种粒径的示踪颗粒分别流过同一块分叉芯片。一个可尝试的影像分析任务，是追踪颗粒经过分叉的路径，统计每个出口的颗粒占比，再用人工计数抽查。这样可以帮助团队判断哪种粒径值得在下一轮流动实验中继续研究。",
+      "微流控实验让我们能够在可控环境中观察颗粒。我们正在探索如何结合视频追踪与建模，比较不同流道和流动条件下的颗粒运动与分布，为递送研究提供线索。",
+    caseTitle: "A possible study",
+    caseTitleZh: "可探索的实验",
+    detail:
+      "Compare two sizes of tracer particles in the same channel geometry. Track their paths and outlet distribution, with manual checks on selected frames, to guide the next flow experiment.",
+    detailZh:
+      "让两种粒径的示踪颗粒分别流过相同几何结构的流道，追踪路径并比较出口分布，再用选定帧的人工计数抽查，为下一轮流动实验提供依据。",
+    caption: "Microfluidic transport experiments",
+    captionZh: "微流控输运实验",
+    alt: "Illustrative laboratory scene with a transparent microfluidic slide, connected tubing and an inverted microscope",
+    altZh: "实验场景示意：透明微流控芯片、连通的管路与倒置显微镜",
   },
   {
     id: "textile-cleaning",
-    image: "cotton.jpg",
-    alt: "Illustration of cotton swatches with different levels of soiling",
-    altZh: "不同污渍程度棉布样片示意图",
-    title: "Textile and fiber cleaning",
-    titleZh: "纺织纤维清洁",
+    image: textileImage,
+    domain: "Textile & fiber cleaning",
+    domainZh: "纺织与纤维清洁",
+    label: "PARTICLES & MATERIALS",
+    labelZh: "颗粒与材料",
     question:
-      "Which formulation leaves less carbon black on the same cotton fabric?",
-    questionZh: "相同棉布上的炭黑污渍，用哪种配方清洗后残留更少？",
-    caseTitle: "Detergent formulation · Soiled cotton swatches",
-    caseTitleZh: "洗涤配方团队 · 标准污布筛选",
-    body:
-      "A formulation team could wash matched carbon-black cotton swatches under the same conditions with two detergents. Before-and-after images taken under fixed lighting could map residual stains, using clean cotton as a color reference. The team could then select formulations for repeat testing.",
+      "Which cleaning conditions leave less residue on the same fabric?",
+    questionZh: "同一种织物，在什么清洁条件下残留更少？",
+    body: "Cotton samples make cleaning questions tangible: what remains on the fabric, where it remains, and how consistently it can be measured. We’re exploring image-based comparisons of residual particles and stains under controlled conditions.",
     bodyZh:
-      "配方团队可以把同批炭黑污布分组，在相同条件下比较两种洗涤配方。一个可行的影像分析任务，是在固定照明下拍摄洗前和洗后的布样，标出残留污渍区域，再用洁净棉布校正底色。团队可以据此挑选值得重复测试的配方。",
+      "从棉布样品出发，可以具体观察清洗后留下了什么、残留在哪里，以及如何稳定地测量。我们正在探索通过影像比较受控条件下的颗粒与污渍残留。",
+    caseTitle: "A possible study",
+    caseTitleZh: "可探索的实验",
+    detail:
+      "Wash matched carbon-black cotton swatches with two formulations under the same conditions. Compare before-and-after images under fixed lighting, using clean cotton as a reference before selecting formulations for repeat testing.",
+    detailZh:
+      "将同批炭黑污布分组，在相同条件下比较两种配方。固定照明，记录洗前与洗后影像，以洁净棉布作参照，再挑选值得重复测试的配方。",
+    caption: "Cotton samples for cleaning research",
+    captionZh: "清洁研究中的棉布样品",
+    alt: "Illustrative laboratory scene with two soiled cotton samples, a sample tray, tweezers and a petri dish",
+    altZh: "实验场景示意：两片带污渍的棉布、样品托盘、镊子与培养皿",
   },
   {
     id: "semiconductor-sensing",
-    image: "blue-microspheres.jpg",
-    alt: "Illustration of blue microspheres moving through a sensor channel",
-    altZh: "蓝色微球在传感器流道中运动的示意图",
-    title: "Semiconductor particle sensing",
-    titleZh: "半导体颗粒传感",
-    question:
-      "Is a spike in ultrapure-water particle counts caused by contamination or bubbles?",
-    questionZh: "超纯水颗粒计数突然升高，是污染信号，还是取样时混入了微气泡？",
-    caseTitle: "Fab water quality · Investigating a count spike",
-    caseTitleZh: "晶圆厂水质团队 · 排查异常计数",
-    body:
-      "Microbubbles can interfere with optical particle counts. A proposed analysis would align count trends with sampling, tubing changes, and venting records to flag intervals for retesting. Engineers could compare repeat samples before and after venting to decide whether to investigate an upstream contamination source.",
+    image: sensingImage,
+    domain: "Semiconductor particle sensing",
+    domainZh: "半导体颗粒传感",
+    label: "PARTICLE DETECTION",
+    labelZh: "颗粒检测",
+    question: "What is behind an unexpected rise in particle counts?",
+    questionZh: "颗粒计数突然升高，背后的原因是什么？",
+    body: "Ultrapure-water monitoring requires particle counts to be read in context. We’re exploring how count trends, sampling conditions, and process records could be considered together when investigating an unexpected signal.",
     bodyZh:
-      "微气泡可能干扰光学颗粒计数。一个可探索的数据分析任务，是把计数趋势与取样、换管和排气记录对齐，标出需要复测的时段。工程师可以比较排气前后的重复取样结果，再判断是否需要追查上游污染源。",
+      "超纯水监测中的颗粒计数，需要结合实际条件理解。我们正在探索如何将计数趋势、取样条件与工艺记录放在一起，为异常信号的排查提供线索。",
+    caseTitle: "A possible study",
+    caseTitleZh: "可探索的分析",
+    detail:
+      "Align count spikes with sampling, tubing changes, and venting records. Compare repeat samples before and after venting to investigate possible microbubble interference before tracing an upstream contamination source.",
+    detailZh:
+      "将异常计数与取样、换管和排气记录对齐。比较排气前后的重复取样结果，排查微气泡干扰，再判断是否需要追查上游污染源。",
+    caption: "Fluid sampling and particle monitoring",
+    captionZh: "流体取样与颗粒监测",
+    alt: "Illustrative laboratory scene with an enclosed particle-monitoring instrument, fluid tubing and a sampling bottle",
+    altZh: "实验场景示意：封闭式颗粒监测仪器、流体管路与取样瓶",
   },
 ];
 ---
@@ -61,74 +83,107 @@ const cases = [
 <PageLayout
   name="Applications"
   nameZh="应用场景"
-  description="Explore research questions in drug delivery, textile cleaning, and semiconductor particle sensing."
-  descriptionZh="了解药物递送、纺织清洁和半导体颗粒传感领域正在探索的研究问题。"
+  description="Explore particle research in drug delivery, textile cleaning and semiconductor process monitoring."
+  descriptionZh="探索药物递送、纺织清洁和半导体工艺监测中的颗粒研究问题。"
 >
-  <section class="section">
+  <section class="section applications-editorial applications-photographic">
     <div class="container">
-      <span class="eyebrow" data-zh="从研究问题开始">
-        START WITH A RESEARCH QUESTION
-      </span>
-      <h1 data-zh="颗粒运动的应用场景。">Applications of particle motion.</h1>
-      <p
-        class="page-lead"
-        data-zh="选择一个方向，看看我们正在探索的研究问题。这些示例用于说明潜在的研究场景，并不代表已验证的产品应用或性能。"
+      <header class="applications-opening">
+        <span class="eyebrow" data-zh="应用探索">
+          APPLICATIONS IN FOCUS
+        </span>
+        <h1 data-zh="颗粒科学，<br/><em>走向实际场景。</em>">
+          Particle science.
+          <br />
+          <em>Practical possibilities.</em>
+        </h1>
+        <p
+          class="page-lead"
+          data-zh="药物如何输运，织物如何清洁，工艺中的颗粒如何被检测。我们从具体的实验与测量问题出发，探索颗粒科学的应用方向。"
+        >
+          How drugs travel. How fabrics are cleaned. How particles are detected
+          in a process. Our application research starts with concrete questions
+          about experiments and measurements.
+        </p>
+      </header>
+      <nav
+        class="application-index"
+        aria-label="Explore application areas"
+        data-zh-aria-label="探索应用方向"
       >
-        Explore the questions guiding our work in each field. These examples
-        illustrate possible research contexts; they are not validated product
-        applications or performance claims.
-      </p>
-
-      <nav class="application-jump" aria-label="Application areas" data-zh-aria-label="应用方向">
-        {cases.map((item) => (
-          <a href={`#${item.id}`} data-zh={item.titleZh}>{item.title}</a>
+        {cases.map((item, index) => (
+          <a href={`#${item.id}`}>
+            <span aria-hidden="true">0{index + 1}</span>
+            <span data-zh={item.domainZh}>{item.domain}</span>
+            <span aria-hidden="true">↘</span>
+          </a>
         ))}
       </nav>
-
       <div class="application-cases">
         {cases.map((item, index) => (
           <article class="application-case" id={item.id}>
-            <figure class="application-case-image">
-              <img
-                src={withBase(`/media/${item.image}`)}
+            <figure class="research-plate application-photo">
+              <Image
+                src={item.image}
                 alt={item.alt}
                 data-zh-alt={item.altZh}
-                width="1254"
-                height="1254"
+                width={900}
+                widths={[480, 900]}
+                sizes="(max-width: 650px) 100vw, 50vw"
+                format="webp"
+                quality={85}
                 loading="lazy"
               />
+              <figcaption>
+                <span aria-hidden="true">0{index + 1}</span>
+                <span data-zh={item.captionZh}>{item.caption}</span>
+                <span class="image-context" data-zh="场景示意">
+                  Illustrative scene
+                </span>
+              </figcaption>
             </figure>
             <div class="application-case-copy">
-              <span class="application-label" data-zh="正在探索">
-                AREA OF EXPLORATION · 0{index + 1}
+              <span class="application-label" data-zh={item.labelZh}>
+                {item.label}
               </span>
-              <h2 data-zh={item.titleZh}>{item.title}</h2>
+              <h2 data-zh={item.domainZh}>{item.domain}</h2>
               <p class="application-question" data-zh={item.questionZh}>
                 {item.question}
               </p>
-              <h3 data-zh={item.caseTitleZh}>{item.caseTitle}</h3>
               <p data-zh={item.bodyZh}>{item.body}</p>
+              <div class="application-study">
+                <h3 data-zh={item.caseTitleZh}>{item.caseTitle}</h3>
+                <p data-zh={item.detailZh}>{item.detail}</p>
+              </div>
             </div>
           </article>
         ))}
       </div>
-
-      <p class="application-note" data-zh="以上均为正在探索的研究方向和讨论示例，不是已验证的产品应用或性能承诺。">
-        These are research directions and discussion examples under
-        exploration, not validated product applications or performance claims.
+      <p
+        class="application-note"
+        data-zh="以上为正在探索的研究方向。配图为 AI 生成的实验场景示意，不代表我们的设备、实验结果或已验证的产品应用。"
+      >
+        These research directions are under exploration. Images are AI-generated
+        illustrations of laboratory contexts, not our equipment, experimental
+        results, or validated product applications.
       </p>
-
-      <div class="contact-cta">
+      <div class="research-invitation">
         <div>
-          <h2 data-zh="你的应用场景是什么？">What is your application context?</h2>
-          <p data-zh="分享研究需求，一起判断是否适合开展交流。">
-            Tell us about your research needs and we can explore whether there
-            is a fit.
-          </p>
+          <span class="eyebrow" data-zh="研究合作">
+            RESEARCH COLLABORATION
+          </span>
+          <h2 data-zh="从你的研究问题，<br/><em>开始交流。</em>">
+            Start with your
+            <br />
+            <em>research question.</em>
+          </h2>
         </div>
-        <a class="button button-primary" href={withBase("/contact/")}>
-          <span data-zh="讨论合作">Discuss a collaboration</span>
-          <Icon name="arrow" size={18} />
+        <a
+          class="section-link"
+          href={withBase("/contact/")}
+          data-zh="讨论研究需求 ↗"
+        >
+          Discuss your research ↗
         </a>
       </div>
     </div>

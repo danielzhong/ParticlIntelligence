@@ -53,3 +53,15 @@ not accept or store contact form submissions.
 Some layout components are adapted from the Automark Astro theme by Themefisher.
 The original theme license and attribution are included in
 [`LICENSE-THEMEFISHER`](LICENSE-THEMEFISHER).
+
+## Visual assets
+
+The application scenes in `src/assets/applications/` are AI-generated editorial
+illustrations, not photographs of company equipment or experimental results.
+Astro generates responsive WebP versions at build time. On-page captions and the
+applications note explain this distinction.
+
+The three Phora recordings in `public/media/` are original research videos;
+their posters are frames extracted from those recordings. The particle artwork
+and microfluidic chip schematic are implemented in the site components. The
+animation respects reduced-motion preferences and pauses when off screen.

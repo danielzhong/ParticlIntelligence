@@ -1,0 +1,163 @@
+/* Shared editorial palette and typography for the research website. */
+:root {
+  --pi-serif:
+    "Iowan Old Style", Baskerville, "Palatino Linotype", Georgia, serif;
+  --pi-serif-zh: "Songti SC", STSong, "Noto Serif CJK SC", serif;
+  --pi-accent: #65577c;
+  --pi-button-ink: #fff;
+  --pi-panel: #eeedf3;
+  --pi-panel-ink: #252332;
+  --pi-panel-muted: #625f70;
+  --pi-panel-line: #d0ccd9;
+  --pi-panel-accent: #7a668c;
+}
+:root[data-theme="light"] {
+  --paper: #faf9fc;
+  --surface: #f1eff6;
+  --surface-raised: #e9e6f0;
+  --ink: #252332;
+  --muted: #625f70;
+  --line: #d7d3df;
+  --blue: #65577c;
+}
+:root[data-theme="dark"] {
+  --paper: #11131d;
+  --surface: #181b27;
+  --surface-raised: #202433;
+  --ink: #f1f0f4;
+  --muted: #b0afbf;
+  --line: #303340;
+  --blue: #d0c2e5;
+  --pi-accent: #d7c9e7;
+  --pi-button-ink: #282333;
+}
+body {
+  font-size: 16px;
+}
+.site-header {
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+}
+.site-header .brand {
+  font-size: 20px !important;
+  letter-spacing: -0.045em;
+}
+.site-header .brand svg {
+  width: 27px;
+  height: 32px;
+  color: var(--pi-accent) !important;
+}
+.desktop-nav {
+  gap: 28px;
+}
+.desktop-nav a {
+  font-size: 13px;
+}
+.site-header .button {
+  border-radius: 3px;
+  font-size: 13px;
+}
+.site-header .header-cta svg {
+  display: none;
+}
+:root[data-theme="dark"] .header-cta {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-color: #565464 !important;
+}
+.site-footer {
+  background: var(--paper) !important;
+}
+.site-footer .brand {
+  font-size: 20px;
+}
+.site-footer p {
+  font-size: 14px;
+}
+.site-footer .footer-label {
+  font-size: 11px;
+}
+.site-footer .footer-links a {
+  font-size: 14px;
+}
+.page-shell h1 {
+  font-weight: 500;
+}
+.page-shell .page-lead {
+  font-size: 18px;
+}
+.page-shell .eyebrow {
+  font-size: 12px;
+}
+.page-shell .button {
+  border-radius: 3px;
+}
+:root[data-theme="dark"] .page-shell .application-section {
+  background: var(--surface);
+}
+.founder-card p {
+  font-size: 15px !important;
+}
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .site-header .brand {
+    font-size: 17px !important;
+  }
+  .site-header .brand svg {
+    width: 23px;
+  }
+  .header-actions {
+    gap: 7px !important;
+  }
+  .site-header .header-inner {
+    gap: 8px;
+  }
+  .page-shell .page-lead {
+    font-size: 16px;
+  }
+}
+
+/* Keep shared actions consistent with the artwork palette. */
+:root[data-theme] .button-primary {
+  color: var(--pi-button-ink);
+  background: var(--pi-accent);
+  border-color: transparent;
+  box-shadow: none;
+}
+:root[data-theme] .button-primary:hover {
+  background: color-mix(in srgb, var(--pi-accent) 88%, var(--ink));
+  box-shadow: none;
+}
+@media (max-width: 380px) {
+  .site-header .brand {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .site-header .brand > span {
+    max-width: 110px;
+    font-size: 15px;
+    line-height: 1.15;
+    white-space: normal;
+    letter-spacing: -0.4px;
+  }
+  .site-header .brand > svg {
+    flex-shrink: 0;
+  }
+  .site-header .header-actions {
+    gap: 4px !important;
+    flex-shrink: 0;
+  }
+  .site-header
+    .header-actions
+    :is(.language-toggle, .theme-toggle, .menu-toggle) {
+    height: 44px;
+  }
+}
+
+.site-header .language-toggle {
+  white-space: nowrap;
+  padding-inline: 3px;
+}

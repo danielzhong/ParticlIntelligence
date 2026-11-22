@@ -1,0 +1,161 @@
+<div
+  class="particle-scene"
+  role="group"
+  aria-label="Generative artwork of particle transport and detection"
+  data-zh-aria-label="颗粒输运与检测的生成式艺术示意"
+>
+  <canvas aria-hidden="true"></canvas>
+  <div class="scene-caption">
+    <span data-zh="颗粒输运与检测 · 艺术示意">
+      TRANSPORT & DETECTION · GENERATIVE ART
+    </span>
+    <button type="button" aria-pressed="false" data-pause-field>
+      <span data-zh="暂停动画">Pause motion</span>
+    </button>
+  </div>
+</div>
+<script>
+  import { localize, LANGUAGE_CHANGE_EVENT } from "../../lib/i18n";
+  const scene = document.querySelector<HTMLElement>(".particle-scene");
+  const canvas = scene?.querySelector("canvas");
+  const ctx = canvas?.getContext("2d");
+  const control = scene?.querySelector<HTMLButtonElement>("[data-pause-field]");
+  if (scene && canvas && ctx && control) {
+    const motion = matchMedia("(prefers-reduced-motion: reduce)");
+    let paused = motion.matches,
+      visible = true,
+      frame = 0,
+      phase = 0,
+      last = 0;
+    let width = 1,
+      height = 1;
+    // An original generative artwork: transport appears as a continuous current;
+    // occasional soft halos evoke detection without imitating a product interface.
+    const particles = Array.from({ length: 1500 }, (_, i) => ({
+      offset: (i * 0.61803398875) % 1,
+      lane: (((i * 0.754877666) % 1) - 0.5) * 2,
+      depth: (i * 0.569840296) % 1,
+      size: 0.45 + (i % 7) * 0.22,
+      beacon: i % 113 === 0,
+    }));
+    const point = (u: number, lane: number, depth: number) => {
+      const wave = Math.sin(u * Math.PI * 2 - 0.8 + phase * 0.055);
+      const twist = u * Math.PI * 2.7 + phase * 0.045;
+      const spread = 0.075 + 0.09 * Math.sin(u * Math.PI) ** 2;
+      return {
+        x: width * u,
+        y:
+          height *
+          (0.47 +
+            0.19 * wave +
+            lane * spread * Math.cos(twist) +
+            (depth - 0.5) * 0.07),
+        z: 0.55 + 0.45 * Math.sin(twist + lane * 1.6),
+      };
+    };
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      const light = document.documentElement.dataset.theme === "light";
+      const lilac = light ? "95,80,151" : "189,176,235";
+      const jade = light ? "46,109,107" : "151,214,202";
+      // Fine, translucent threads connect the particles into a flowing form.
+      const compact = width < 700;
+      const threads = compact ? 17 : 27;
+      const steps = compact ? 96 : 150;
+      for (let k = 0; k < threads; k++) {
+        const lane = (k / (threads - 1) - 0.5) * 2;
+        ctx.beginPath();
+        for (let step = 0; step <= steps; step++) {
+          const p = point(step / steps, lane, 0.5);
+          step ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+        }
+        ctx.strokeStyle = `rgba(${k % 3 === 0 ? jade : lilac},${light ? 0.055 : 0.07})`;
+        ctx.lineWidth = 0.65;
+        ctx.stroke();
+      }
+      const particleCount = compact ? 750 : particles.length;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = particles[i];
+        const u =
+          (particle.offset +
+            phase * (0.012 + 0.004 * (1 - Math.abs(particle.lane)))) %
+          1;
+        const p = point(u, particle.lane, particle.depth);
+        const edge = Math.sin(Math.PI * u) ** 0.65;
+        const alpha = edge * (0.18 + 0.62 * p.z);
+        const tint = particle.depth > 0.65 ? jade : lilac;
+        const r = particle.size * (0.6 + 0.65 * p.z);
+        if (particle.depth > 0.87) {
+          const bloom = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 6);
+          bloom.addColorStop(0, `rgba(${tint},${alpha * 0.24})`);
+          bloom.addColorStop(1, `rgba(${tint},0)`);
+          ctx.fillStyle = bloom;
+          ctx.fillRect(p.x - r * 6, p.y - r * 6, r * 12, r * 12);
+        }
+        ctx.fillStyle = `rgba(${tint},${alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        if (particle.beacon) {
+          const pulse = (Math.sin(phase * 0.8 + particle.offset * 20) + 1) / 2;
+          ctx.strokeStyle = `rgba(${tint},${alpha * pulse * 0.35})`;
+          ctx.lineWidth = 0.65;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r + 3 + pulse * 4, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+    };
+    const loop = (now: number) => {
+      if (paused || !visible || document.hidden) {
+        frame = 0;
+        last = 0;
+        return;
+      }
+      if (!last) last = now;
+      if (now - last >= 32) {
+        phase += Math.min((now - last) / 1000, 0.1);
+        last = now;
+        draw();
+      }
+      frame = requestAnimationFrame(loop);
+    };
+    const update = () => {
+      control.setAttribute("aria-pressed", String(paused));
+      control.textContent = paused
+        ? localize("Play motion", "播放动画")
+        : localize("Pause motion", "暂停动画");
+      if (!frame && !paused && visible && !document.hidden)
+        frame = requestAnimationFrame(loop);
+      draw();
+    };
+    new ResizeObserver(() => {
+      width = canvas.clientWidth;
+      height = canvas.clientHeight;
+      const dpr = Math.min(devicePixelRatio || 1, width < 700 ? 1.5 : 2);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw();
+    }).observe(scene);
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      update();
+    }).observe(scene);
+    new MutationObserver(draw).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    control.addEventListener("click", () => {
+      paused = !paused;
+      update();
+    });
+    motion.addEventListener("change", () => {
+      paused = motion.matches;
+      update();
+    });
+    document.addEventListener("visibilitychange", update);
+    window.addEventListener(LANGUAGE_CHANGE_EVENT, update);
+    update();
+  }
+</script>

@@ -7,6 +7,7 @@ import "../styles/motion.css";
 import "../styles/interactions.css";
 import "../styles/language.css";
 import "../styles/company.css";
+import "../styles/brand-refresh.css";
 import Header from "./partials/Header.astro";
 import Footer from "./partials/Footer.astro";
 import BackToTop from "./components/BackToTop.astro";
@@ -37,7 +38,7 @@ const canonicalURL = Astro.site
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#11131d" />
     <script is:inline>
       // Apply the saved preference before the page paints. New visitors see dark mode.
       let theme = "dark";
@@ -48,11 +49,13 @@ const canonicalURL = Astro.site
       document.documentElement.dataset.theme = theme;
       try {
         document.documentElement.lang =
-          localStorage.getItem("particle-intelligence-language") === "zh" ? "zh-CN" : "en";
+          localStorage.getItem("particle-intelligence-language") === "zh"
+            ? "zh-CN"
+            : "en";
       } catch {}
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", theme === "dark" ? "#0b1220" : "#f8faff");
+        .setAttribute("content", theme === "dark" ? "#11131d" : "#faf9fc");
     </script>
     <title data-zh={titleZh}>{title}</title>
     <meta

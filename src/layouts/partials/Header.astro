@@ -72,8 +72,7 @@ const links = navigation.map((link) => ({
       class="button button-primary"
       href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}
     >
-      <span data-zh="联系我们">Let’s talk</span>{" "}
-      <Icon name="arrow" size={18} />
+      <span data-zh="联系我们">Let’s talk</span> <Icon name="arrow" size={18} />
     </a>
   </nav>
 </header>
@@ -84,7 +83,7 @@ const links = navigation.map((link) => ({
     gap: 12px;
   }
   :is(.desktop-nav, .mobile-nav) a[aria-current="page"] {
-    color: #1d4ed8;
+    color: var(--pi-accent);
     font-weight: 650;
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -96,7 +95,7 @@ const links = navigation.map((link) => ({
   :global(:root[data-theme="dark"])
     :is(.desktop-nav, .mobile-nav)
     a[aria-current="page"] {
-    color: #a9d4ff;
+    color: var(--pi-accent);
   }
   @media (max-width: 600px) {
     .header-actions {

@@ -1,164 +1,262 @@
 ---
 import Base from "../layouts/Base.astro";
-import Icon from "../layouts/components/Icon.astro";
-import FlowField from "../layouts/components/FlowField.astro";
+import ParticleScene from "../layouts/components/ParticleScene.astro";
+import MicrofluidicChip from "../layouts/components/MicrofluidicChip.astro";
 import { withBase } from "../lib/paths";
 import { site } from "../config/site";
-import "../styles/platform.css";
-import "../styles/pages.css";
+import "../styles/home-redesign.css";
 ---
 
 <Base>
-  <section class="hero platform-hero">
-    <div class="hero-halo" aria-hidden="true"></div>
-    <FlowField />
-    <div class="container hero-content">
-      <h1 data-zh="看见颗粒如何运动。<br /><span>探索接下来的可能性。</span>">
-        See how particles move.
-        <br />
-        <span>Explore what comes next.</span>
-      </h1>
-      <p class="hero-tagline" data-zh="理解颗粒行为，探索微尺度的可能性。">
-        Understand particle behavior. Explore possibilities at the microscale.
-      </p>
-      <p class="hero-description" data-zh={site.descriptionZh}>
-        {site.description}
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href={withBase("/technology/")}>
-          <span data-zh="探索我们的技术">Explore Our Technology</span>
-          <Icon name="arrow" size={19} />
-        </a>
-        <a class="button button-outline" href={withBase("/contact/")}>
-          <span data-zh="与我们合作">Partner With Us</span>
-          <Icon name="diagonal" size={18} />
-        </a>
+  <section class="pi-hero">
+    <div class="container pi-hero-grid">
+      <div class="pi-hero-copy">
+        <p class="pi-kicker" data-zh="颗粒输运 × 颗粒检测">
+          PARTICLE TRANSPORT × PARTICLE DETECTION
+        </p>
+        <h1 data-zh="看见颗粒如何运动。<br/><em>探索接下来的可能性。</em>">
+          See how particles move.
+          <br />
+          <em>Explore what comes next.</em>
+        </h1>
+        <p class="pi-hero-tagline" data-zh={site.taglineZh}>
+          {site.tagline}
+        </p>
+        <div class="pi-actions">
+          <a
+            class="pi-button"
+            href={withBase("/technology/#phora")}
+            data-zh="认识 Phora"
+          >
+            Meet Phora
+          </a>
+          <a
+            class="pi-text-link"
+            href={withBase("/technology/")}
+            data-zh="探索技术方向"
+          >
+            Explore the science
+          </a>
+        </div>
+        <p class="pi-stage" data-zh="研发中 · 欢迎研究合作交流">
+          In development · Open to research conversations
+        </p>
       </div>
-      <div class="hero-footnote">
-        <span></span>
-        <span data-zh="面向科研与产业的研发方向">
-          Research and industry, connected at the microscale
+      <ParticleScene />
+    </div>
+    <div class="container pi-hero-bottom">
+      <span data-zh="物理、实验与人工智能，在微观尺度相遇。">
+        Physics, experiments & AI. Connected at the microscale.
+      </span>
+      <a href="#perspective" data-zh="向下探索 ↓">
+        SCROLL TO EXPLORE ↓
+      </a>
+    </div>
+  </section>
+  <section class="pi-statement" id="perspective">
+    <div class="container pi-statement-grid">
+      <p class="pi-kicker" data-zh="我们的研究出发点">
+        THE QUESTION BEHIND OUR WORK
+      </p>
+      <div>
+        <h2 data-zh="看见运动，<br/><em>只是开始。</em>">
+          Seeing motion
+          <br />
+          <em>is just the beginning.</em>
+        </h2>
+        <p data-zh="颗粒的路径蕴含着它与周围环境相互作用的信息。我们将实验、物理建模和机器学习结合，探索如何从观察中获得更深入的理解。">
+          A particle’s path holds clues to how it interacts with its
+          surroundings. We bring experiments, physical modeling, and machine
+          learning together to explore what those observations can tell us.
+        </p>
+      </div>
+    </div>
+    <div class="container pi-disciplines">
+      <article>
+        <span class="pi-kicker" data-zh="颗粒输运">
+          PARTICLE TRANSPORT
+        </span>
+        <h3 data-zh="理解运动的路径。">Understand the paths.</h3>
+        <p data-zh="探索颗粒如何在流体、材料和不同几何结构中运动与分布。">
+          Explore how particles move and distribute through fluids, materials,
+          and geometries.
+        </p>
+      </article>
+      <article>
+        <span class="pi-kicker" data-zh="颗粒检测">
+          PARTICLE DETECTION
+        </span>
+        <h3 data-zh="发现观察中的信号。">Find the signal.</h3>
+        <p data-zh="探索如何从实验影像与颗粒观测中提取有用信息。">
+          Explore how experimental images and particle observations can reveal
+          useful information.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="pi-phora-intro">
+    <div class="container pi-phora-intro-grid">
+      <div>
+        <p class="pi-kicker" data-zh="认识 PHORA">
+          INTRODUCING PHORA
+        </p>
+        <h2 data-zh="从观察，<br/><em>走向理解。</em>">
+          From observation
+          <br />
+          <em>to understanding.</em>
+        </h2>
+      </div>
+      <div>
+        <p data-zh="Phora 将实验观察、物理建模与机器学习相连接，探索颗粒运动背后的规律。">
+          Phora connects experimental observation with physical modeling and
+          machine learning to explore the patterns behind particle motion.
+        </p>
+        <a
+          class="pi-text-link"
+          href={withBase("/technology/#phora")}
+          data-zh="了解 Phora 与实验影像 ↗"
+        >
+          Discover Phora & the experiments ↗
+        </a>
+        <span class="pi-stage" data-zh="研发中">
+          In development
         </span>
       </div>
     </div>
   </section>
-
-  <section class="home-intro">
-    <div class="container home-intro-copy">
-      <span class="eyebrow" data-zh="颗粒智能的新方法">A NEW APPROACH TO PARTICLE INTELLIGENCE</span>
-      <h2 data-zh="颗粒建模与微流控设计。">Particle modeling and microfluidic design.</h2>
-      <p data-zh={site.descriptionZh}>{site.description}</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="directions-heading">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow" data-zh="两项相互关联的研发方向">TWO CONNECTED DIRECTIONS</span>
-          <h2 id="directions-heading" data-zh="从预测颗粒行为，到设计实验工具。">
-            From predicting particle behavior to designing experimental tools.
-          </h2>
-        </div>
-      </div>
-      <div class="direction-grid">
-        <article class="direction-card">
-          <span class="direction-number">01 / PHORA</span>
-          <h3 data-zh="探索颗粒如何运动与分布。">
-            Explore how particles move and distribute.
-          </h3>
-          <p data-zh="Phora 是我们正在开发的颗粒行为建模工具，旨在帮助研究人员探索不同环境下的颗粒运动和分布。">
-            Phora is our particle behavior modeling tool in development, intended to help researchers explore particle motion and distributions in different environments.
-          </p>
-          <a href={withBase("/technology/")}>
-            <span data-zh="了解 Phora">Discover Phora</span>
-            <Icon name="arrow" size={18} />
-          </a>
-        </article>
-        <article class="direction-card">
-          <span class="direction-number" data-zh="02 / 微流控芯片">02 / MICROFLUIDICS</span>
-          <h3 data-zh="从实验需求走向芯片原型。">
-            Move from experimental needs toward chip prototypes.
-          </h3>
-          <p data-zh="从实验需求出发，我们探索将 AI 辅助设计、建模和 3D 打印结合，推动微流控芯片概念向原型转化。">
-            Starting with experimental needs, we explore how AI-assisted design, modeling, and 3D printing can help move microfluidic chip concepts toward prototypes.
-          </p>
-          <a href={withBase("/technology/#microfluidics")}>
-            <span data-zh="了解芯片设计方向">Explore chip design</span>
-            <Icon name="arrow" size={18} />
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section application-section">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow" data-zh="正在探索的应用方向">AREAS OF EXPLORATION</span>
-          <h2 data-zh="从研究问题出发。">Start with the research question.</h2>
-        </div>
-        <a class="section-link" href={withBase("/applications/")}>
-          <span data-zh="查看应用方向">View applications</span>
-          <Icon name="arrow" size={18} />
+  <section class="pi-design">
+    <div class="container pi-design-grid">
+      <MicrofluidicChip id="home-chip" />
+      <div>
+        <p class="pi-kicker" data-zh="与建模相连接的研发方向">
+          A CONNECTED RESEARCH DIRECTION
+        </p>
+        <h2 data-zh="从研究问题，<br/>走向芯片设计。">
+          From a question
+          <br />
+          to a chip.
+        </h2>
+        <p
+          class="pi-copy"
+          data-zh="我们正在探索 AI 辅助设计与 3D 打印，帮助微流控芯片从概念走向原型，再让实验反馈启发下一轮设计。"
+        >
+          We’re exploring AI-assisted design and 3D printing to move
+          microfluidic concepts toward prototypes, with experimental feedback
+          informing the next design.
+        </p>
+        <a
+          class="pi-text-link"
+          href={withBase("/technology/#chips")}
+          data-zh="探索芯片设计"
+        >
+          Explore chip design
         </a>
       </div>
-      <div class="application-grid">
-        <article class="application-card">
-          <span class="application-label" data-zh="正在探索">IN EXPLORATION</span>
-          <h2 data-zh="药物输运与递送">Drug transport & delivery</h2>
-          <p data-zh="研究颗粒特性与微环境如何影响输运和递送问题。">
-            Explore how particle properties and microenvironments shape transport and delivery questions.
-          </p>
-        </article>
-        <article class="application-card">
-          <span class="application-label" data-zh="正在探索">IN EXPLORATION</span>
-          <h2 data-zh="纺织纤维清洁">Textile & fiber cleaning</h2>
-          <p data-zh="探索颗粒与纤维之间的相互作用，以及微流控实验如何帮助观察这些过程。">
-            Explore particle and fiber interactions, and how microfluidic experiments may help study them.
-          </p>
-        </article>
-        <article class="application-card">
-          <span class="application-label" data-zh="正在探索">IN EXPLORATION</span>
-          <h2 data-zh="半导体颗粒传感">Particle sensing for semiconductors</h2>
-          <p data-zh="探索颗粒行为建模和实验设计在半导体颗粒检测问题中的潜在作用。">
-            Explore potential roles for particle modeling and experimental design in semiconductor particle sensing.
-          </p>
-        </article>
-      </div>
     </div>
   </section>
-
-  <section class="vision-band">
-    <div class="container vision-inner">
-      <div>
-        <span class="eyebrow" data-zh="长期方向">LONG-TERM VISION</span>
-        <h2>Predict. Design. Learn.</h2>
-        <div class="vision-steps" aria-label="Predict, Design, Learn">
-          <span data-zh="预测">PREDICT</span>
-          <span data-zh="设计">DESIGN</span>
-          <span data-zh="学习">LEARN</span>
+  <section class="pi-research">
+    <div class="container">
+      <div class="pi-section-head">
+        <div>
+          <p class="pi-kicker" data-zh="正在探索的研究问题">
+            QUESTIONS WE’RE EXPLORING
+          </p>
+          <h2 data-zh="微观世界。<br/>更广阔的问题。">
+            Small scale.
+            <br />
+            Wider questions.
+          </h2>
         </div>
-      </div>
-      <p data-zh="这是 Particle Intelligence 的长期产品愿景。我们正围绕研究需求探索这些方向，并会根据研发进展逐步推进。">
-        This is Particle Intelligence’s long-term product vision. We are exploring these directions around research needs and will advance them as development progresses.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container contact-cta">
-      <div>
-        <h2 data-zh="有研究问题或合作想法？">Have a research question or a collaboration in mind?</h2>
-        <p data-zh="欢迎科研、芯片设计、产业与投资相关咨询。">
-          We welcome research, chip design, industry, and investment inquiries.
+        <p data-zh="这些场景引导着我们的研究方向，尚不代表已验证的产品应用。">
+          These contexts guide our research. They are areas of exploration, not
+          validated product applications.
         </p>
       </div>
-      <a class="button button-primary" href={withBase("/contact/")}>
-        <span data-zh="联系我们">Contact us</span>
-        <Icon name="arrow" size={18} />
-      </a>
+      <div class="pi-research-list">
+        <a href={withBase("/applications/#drug-delivery")}>
+          <span class="pi-research-name" data-zh="药物输运与递送">
+            Drug transport & delivery
+          </span>
+          <span data-zh="颗粒会在哪里聚集，又如何分散？">
+            Where do particles accumulate—and disperse?
+          </span>
+          <span class="pi-research-tag" data-zh="探索中">
+            EXPLORING
+          </span>
+        </a>
+        <a href={withBase("/applications/#textile-cleaning")}>
+          <span class="pi-research-name" data-zh="纺织纤维清洁">
+            Textile & fiber cleaning
+          </span>
+          <span data-zh="颗粒如何与纤维相互作用？">
+            How do particles interact with fibers?
+          </span>
+          <span class="pi-research-tag" data-zh="探索中">
+            EXPLORING
+          </span>
+        </a>
+        <a href={withBase("/applications/#semiconductor-sensing")}>
+          <span class="pi-research-name" data-zh="半导体颗粒传感">
+            Semiconductor particle sensing
+          </span>
+          <span data-zh="怎样更好地理解颗粒计数信号？">
+            What can particle-count signals tell us?
+          </span>
+          <span class="pi-research-tag" data-zh="探索中">
+            EXPLORING
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="pi-team">
+    <div class="container pi-team-grid">
+      <p class="pi-kicker" data-zh="跨学科团队">
+        AT THE INTERSECTION
+      </p>
+      <div>
+        <h2 data-zh="物理学家的好奇心。<br/>工程师的实践精神。">
+          The curiosity of physicists.
+          <br />
+          The craft of engineers.
+        </h2>
+        <p
+          class="pi-copy"
+          data-zh="我们的创始团队将颗粒输运、实验科学、计算建模和人工智能的研究经验带到同一个问题面前。"
+        >
+          Our founding team brings research experience in particle transport,
+          experimental science, computational modeling, and artificial
+          intelligence to a shared set of questions.
+        </p>
+        <a
+          class="pi-text-link"
+          href={withBase("/about/")}
+          data-zh="认识创始团队"
+        >
+          Meet the founders
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="pi-invitation">
+    <div class="container">
+      <p class="pi-kicker" data-zh="欢迎研究合作交流">
+        LET’S EXPLORE TOGETHER
+      </p>
+      <h2 data-zh="你的下一个问题，<br/><em>从哪里开始？</em>">
+        What’s your
+        <br />
+        <em>next question?</em>
+      </h2>
+      <div class="pi-invitation-bottom">
+        <p data-zh="如果你正在研究颗粒行为或微流控实验，欢迎与我们交流研究需求与合作想法。">
+          Working on particle behavior or microfluidic experiments? We’d like to
+          hear about your research and collaboration ideas.
+        </p>
+        <a class="pi-button" href={withBase("/contact/")} data-zh="与团队交流">
+          Start a conversation
+        </a>
+      </div>
     </div>
   </section>
 </Base>
