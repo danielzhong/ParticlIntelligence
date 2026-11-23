@@ -62,10 +62,17 @@ illustrations, not photographs of company equipment or experimental results.
 Astro generates responsive WebP versions at build time. On-page captions and the
 applications note explain this distinction.
 
-The experimental comparison videos and extracted posters have been removed
-from the public assets pending verification of their sources and reuse rights.
-Do not restore them without recording the source publication/DOI, relevant
-material identifiers, rights holder or applicable licence, and required credit.
+The three `phora-simulation-*.mp4` clips show only the model panel from the
+previous side-by-side videos. The project owner confirmed that this panel uses
+self-generated initial conditions and synthetic data, and that the previous
+experimental-frame initialization description was incorrect. The experimental
+panel and embedded comparison headings have been excluded. On-page captions
+identify these as illustrative simulations, not experimental validation or
+product performance evaluations. Playback is visitor-controlled.
+
+The original comparison videos and extracted comparison posters remain excluded
+from public assets. Before publishing any experimental footage, verify the
+source publication/DOI, material identifiers, reuse rights, and required credit.
 Previously published academic work must not be presented as research conducted
 by this initiative. No specific publication or licence has been verified here.
 

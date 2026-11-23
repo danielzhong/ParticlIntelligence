@@ -30,6 +30,11 @@
   --blue: #d0c2e5;
   --pi-accent: #d7c9e7;
   --pi-button-ink: #282333;
+  --pi-panel: var(--paper);
+  --pi-panel-ink: var(--ink);
+  --pi-panel-muted: var(--muted);
+  --pi-panel-line: var(--line);
+  --pi-panel-accent: var(--pi-accent);
 }
 body {
   font-size: 16px;

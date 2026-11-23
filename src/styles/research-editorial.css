@@ -388,3 +388,45 @@
     gap: 26px;
   }
 }
+
+.model-simulation {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.simulation-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.simulation-heading h2 {
+  margin: 12px 0 0;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+.model-simulation video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 320 / 77;
+  object-fit: contain;
+  background: #030e0c;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.simulation-note {
+  max-width: 840px;
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+@media (max-width: 650px) {
+  .simulation-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -30,6 +30,67 @@ import { withBase } from "../lib/paths";
         not a validated or available commercial product.
       </p>
 
+      <section class="model-simulation" aria-labelledby="simulation-title">
+        <div class="simulation-heading">
+          <div>
+            <span class="eyebrow" data-zh="PHORA · 合成数据">
+              PHORA · SYNTHETIC DATA
+            </span>
+            <h2 id="simulation-title" data-zh="模型模拟示意">
+              Model simulation
+            </h2>
+          </div>
+          <div
+            class="demo-tabs"
+            role="group"
+            aria-label="Choose a model simulation"
+            data-zh-aria-label="选择模型模拟示意"
+          >
+            {[1, 2, 3].map((number) => (
+              <button
+                type="button"
+                class="demo-tab"
+                data-model-simulation
+                data-video-src={withBase(
+                  `/media/phora-simulation-0${number}.mp4`,
+                )}
+                data-video-poster={withBase(
+                  `/media/phora-simulation-0${number}.jpg`,
+                )}
+                aria-pressed={number === 1 ? "true" : "false"}
+              >
+                <span data-zh={`模拟 ${number}`}>Simulation {number}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <video
+          id="phora-simulation"
+          controls
+          playsinline
+          preload="none"
+          poster={withBase("/media/phora-simulation-01.jpg")}
+          src={withBase("/media/phora-simulation-01.mp4")}
+          aria-label="Phora model simulation using synthetic data"
+          data-zh-aria-label="使用合成数据的 Phora 模型模拟示意"
+          aria-describedby="simulation-note"
+        >
+          <p data-zh="你的浏览器不支持内嵌视频。">
+            Your browser does not support embedded video.
+          </p>
+        </video>
+        <p
+          id="simulation-note"
+          class="simulation-note"
+          data-zh="使用自行生成的初始条件与合成数据的模型模拟示意。画面仅展示模拟输出，不包含实验影像，也不代表实验验证结果或产品性能评估。"
+        >
+          Illustrative model simulations using self-generated initial conditions
+          and synthetic data. These clips show simulation output only; they
+          contain no experimental footage and do not represent experimental
+          validation or a product performance evaluation.
+        </p>
+      </section>
+
       <section class="research-concept" aria-labelledby="phora-questions">
         <div class="research-concept-heading">
           <span class="eyebrow" data-zh="值得探索的问题">
@@ -120,3 +181,27 @@ import { withBase } from "../lib/paths";
     </div>
   </section>
 </PageLayout>
+
+<script>
+  const player = document.querySelector<HTMLVideoElement>("#phora-simulation");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-model-simulation]",
+  );
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (
+        !player ||
+        !button.dataset.videoSrc ||
+        button.getAttribute("aria-pressed") === "true"
+      )
+        return;
+      player.pause();
+      buttons.forEach((item) =>
+        item.setAttribute("aria-pressed", String(item === button)),
+      );
+      player.poster = button.dataset.videoPoster || "";
+      player.src = button.dataset.videoSrc;
+      player.load();
+    });
+  });
+</script>
