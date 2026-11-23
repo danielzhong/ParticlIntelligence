@@ -1,7 +1,7 @@
 # Particle Intelligence
 
-The public website for the Particle Intelligence research and entrepreneurial
-initiative, built with Astro and deployed to
+The public website for the Particle Intelligence research project, built with
+Astro and deployed to
 [partintell.com](https://partintell.com/). The site presents the team, research
 directions, Phora, and microfluidic design work in English and Chinese.
 
@@ -58,7 +58,7 @@ The original theme license and attribution are included in
 ## Visual assets
 
 The application scenes in `src/assets/applications/` are AI-generated editorial
-illustrations, not photographs of company equipment or experimental results.
+illustrations, not photographs of project equipment or experimental results.
 Astro generates responsive WebP versions at build time. On-page captions and the
 applications note explain this distinction.
 
@@ -79,7 +79,7 @@ The original comparison videos and extracted comparison posters remain excluded
 from public assets. Before publishing any experimental footage, verify the
 source publication/DOI, material identifiers, reuse rights, and required credit.
 Previously published academic work must not be presented as research conducted
-by this initiative. No specific publication or licence has been verified here.
+by this project. No specific publication or licence has been verified here.
 
 The particle artwork and microfluidic chip schematic are implemented in site
 components. They are illustrations, not experimental evidence. The animation
