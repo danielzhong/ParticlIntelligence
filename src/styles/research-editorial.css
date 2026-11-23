@@ -430,3 +430,30 @@
     gap: 20px;
   }
 }
+
+.simulation-heading .demo-tabs {
+  flex-wrap: wrap;
+}
+.simulation-context {
+  border-left: 2px solid var(--pi-accent);
+  padding: 3px 0 3px 20px;
+  margin: 0 0 24px;
+}
+.simulation-context h3 {
+  margin: 8px 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.simulation-context p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .simulation-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+}

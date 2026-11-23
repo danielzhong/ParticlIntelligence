@@ -70,6 +70,11 @@ panel and embedded comparison headings have been excluded. On-page captions
 identify these as illustrative simulations, not experimental validation or
 product performance evaluations. Playback is visitor-controlled.
 
+Simulation identifiers follow the material-pair labels embedded in the original
+source clips: 01 = PDMS–PDMS, 02 = UV glue–UV glue, 03 = PDMS–UV glue.
+The website describes these material pairings only; numerical inlet/outlet,
+wall-interaction parameters, and boundary orientation have not been supplied.
+
 The original comparison videos and extracted comparison posters remain excluded
 from public assets. Before publishing any experimental footage, verify the
 source publication/DOI, material identifiers, reuse rights, and required credit.

@@ -4,6 +4,31 @@ import MicrofluidicChip from "../layouts/components/MicrofluidicChip.astro";
 import "../styles/research-editorial.css";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
+
+const simulations = [
+  {
+    number: 1,
+    label: "PDMS–PDMS",
+    labelZh: "PDMS–PDMS",
+    description: "PDMS on both boundaries: a same-material configuration.",
+    descriptionZh: "两侧边界均为 PDMS，属于相同材料的边界组合。",
+  },
+  {
+    number: 2,
+    label: "UV glue–UV glue",
+    labelZh: "UV 胶–UV 胶",
+    description: "UV glue on both boundaries: a same-material configuration.",
+    descriptionZh: "两侧边界均为 UV 胶，属于相同材料的边界组合。",
+  },
+  {
+    number: 3,
+    label: "PDMS–UV glue",
+    labelZh: "PDMS–UV 胶",
+    description:
+      "One PDMS boundary and one UV-glue boundary: a mixed-material configuration.",
+    descriptionZh: "一侧边界为 PDMS，另一侧为 UV 胶，属于不同材料的边界组合。",
+  },
+];
 ---
 
 <PageLayout
@@ -33,8 +58,8 @@ import { withBase } from "../lib/paths";
       <section class="model-simulation" aria-labelledby="simulation-title">
         <div class="simulation-heading">
           <div>
-            <span class="eyebrow" data-zh="PHORA · 合成数据">
-              PHORA · SYNTHETIC DATA
+            <span class="eyebrow" data-zh="PHORA · 模型模拟">
+              PHORA · MODEL SIMULATIONS
             </span>
             <h2 id="simulation-title" data-zh="模型模拟示意">
               Model simulation
@@ -46,11 +71,13 @@ import { withBase } from "../lib/paths";
             aria-label="Choose a model simulation"
             data-zh-aria-label="选择模型模拟示意"
           >
-            {[1, 2, 3].map((number) => (
+            {simulations.map(({ number, label, labelZh }) => (
               <button
                 type="button"
                 class="demo-tab"
                 data-model-simulation
+                data-simulation-id={number}
+                aria-controls={`simulation-details-${number}`}
                 data-video-src={withBase(
                   `/media/phora-simulation-0${number}.mp4`,
                 )}
@@ -59,10 +86,27 @@ import { withBase } from "../lib/paths";
                 )}
                 aria-pressed={number === 1 ? "true" : "false"}
               >
-                <span data-zh={`模拟 ${number}`}>Simulation {number}</span>
+                <span data-zh={labelZh}>{label}</span>
               </button>
             ))}
           </div>
+        </div>
+        <div class="simulation-context" aria-live="polite" aria-atomic="true">
+          {simulations.map(
+            ({ number, label, labelZh, description, descriptionZh }) => (
+              <div
+                id={`simulation-details-${number}`}
+                data-simulation-details={number}
+                hidden={number !== 1}
+              >
+                <span class="eyebrow" data-zh="边界材料配置">
+                  BOUNDARY MATERIALS
+                </span>
+                <h3 data-zh={labelZh}>{label}</h3>
+                <p data-zh={descriptionZh}>{description}</p>
+              </div>
+            ),
+          )}
         </div>
         <video
           id="phora-simulation"
@@ -196,6 +240,12 @@ import { withBase } from "../lib/paths";
       )
         return;
       player.pause();
+      document
+        .querySelectorAll<HTMLElement>("[data-simulation-details]")
+        .forEach((details) => {
+          details.hidden =
+            details.dataset.simulationDetails !== button.dataset.simulationId;
+        });
       buttons.forEach((item) =>
         item.setAttribute("aria-pressed", String(item === button)),
       );

@@ -3,22 +3,22 @@
   --pi-serif:
     "Iowan Old Style", Baskerville, "Palatino Linotype", Georgia, serif;
   --pi-serif-zh: "Songti SC", STSong, "Noto Serif CJK SC", serif;
-  --pi-accent: #65577c;
+  --pi-accent: #315dc0;
   --pi-button-ink: #fff;
-  --pi-panel: #eeedf3;
-  --pi-panel-ink: #252332;
-  --pi-panel-muted: #625f70;
-  --pi-panel-line: #d0ccd9;
-  --pi-panel-accent: #7a668c;
+  --pi-panel: #edf2f8;
+  --pi-panel-ink: #202c40;
+  --pi-panel-muted: #53647c;
+  --pi-panel-line: #ccd8e8;
+  --pi-panel-accent: #4168b5;
 }
 :root[data-theme="light"] {
   --paper: #faf9fc;
-  --surface: #f1eff6;
-  --surface-raised: #e9e6f0;
-  --ink: #252332;
-  --muted: #625f70;
-  --line: #d7d3df;
-  --blue: #65577c;
+  --surface: #eef3f9;
+  --surface-raised: #e5edf7;
+  --ink: #202c40;
+  --muted: #53647c;
+  --line: #d3ddeb;
+  --blue: #315dc0;
 }
 :root[data-theme="dark"] {
   --paper: #11131d;
@@ -27,9 +27,9 @@
   --ink: #f1f0f4;
   --muted: #b0afbf;
   --line: #303340;
-  --blue: #d0c2e5;
-  --pi-accent: #d7c9e7;
-  --pi-button-ink: #282333;
+  --blue: #95b3ff;
+  --pi-accent: #95b3ff;
+  --pi-button-ink: #14233e;
   --pi-panel: var(--paper);
   --pi-panel-ink: var(--ink);
   --pi-panel-muted: var(--muted);
@@ -69,7 +69,7 @@ body {
 :root[data-theme="dark"] .header-cta {
   background: transparent !important;
   color: var(--ink) !important;
-  border-color: #565464 !important;
+  border-color: #43536d !important;
 }
 .site-footer {
   background: var(--paper) !important;
@@ -165,4 +165,8 @@ body {
 .site-header .language-toggle {
   white-space: nowrap;
   padding-inline: 3px;
+}
+
+.site-footer .brand svg {
+  color: var(--pi-accent);
 }

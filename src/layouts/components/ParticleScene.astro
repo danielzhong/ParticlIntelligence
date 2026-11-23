@@ -56,7 +56,7 @@
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       const light = document.documentElement.dataset.theme === "light";
-      const lilac = light ? "95,80,151" : "189,176,235";
+      const blue = light ? "49,93,192" : "149,179,255";
       const jade = light ? "46,109,107" : "151,214,202";
       // Fine, translucent threads connect the particles into a flowing form.
       const compact = width < 700;
@@ -69,7 +69,7 @@
           const p = point(step / steps, lane, 0.5);
           step ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
         }
-        ctx.strokeStyle = `rgba(${k % 3 === 0 ? jade : lilac},${light ? 0.055 : 0.07})`;
+        ctx.strokeStyle = `rgba(${k % 3 === 0 ? jade : blue},${light ? 0.055 : 0.07})`;
         ctx.lineWidth = 0.65;
         ctx.stroke();
       }
@@ -83,7 +83,7 @@
         const p = point(u, particle.lane, particle.depth);
         const edge = Math.sin(Math.PI * u) ** 0.65;
         const alpha = edge * (0.18 + 0.62 * p.z);
-        const tint = particle.depth > 0.65 ? jade : lilac;
+        const tint = particle.depth > 0.65 ? jade : blue;
         const r = particle.size * (0.6 + 0.65 * p.z);
         if (particle.depth > 0.87) {
           const bloom = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 6);
