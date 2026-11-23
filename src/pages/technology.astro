@@ -10,23 +10,28 @@ const simulations = [
     number: 1,
     label: "PDMS–PDMS",
     labelZh: "PDMS–PDMS",
-    description: "PDMS on both boundaries: a same-material configuration.",
-    descriptionZh: "两侧边界均为 PDMS，属于相同材料的边界组合。",
+    description:
+      "Both boundary surfaces are PDMS (polydimethylsiloxane), a silicone polymer. This is a same-material boundary pair.",
+    descriptionZh:
+      "两侧边界材料均为 PDMS，全称 polydimethylsiloxane（聚二甲基硅氧烷），是一种有机硅聚合物。这一组表示相同材料的边界组合。",
   },
   {
     number: 2,
     label: "UV glue–UV glue",
     labelZh: "UV 胶–UV 胶",
-    description: "UV glue on both boundaries: a same-material configuration.",
-    descriptionZh: "两侧边界均为 UV 胶，属于相同材料的边界组合。",
+    description:
+      "Both boundary surfaces are UV glue (ultraviolet-curable adhesive). This is a same-material boundary pair. UV glue describes a light-curing adhesive category, not a specific chemical formulation.",
+    descriptionZh:
+      "两侧边界材料均为 UV glue，即 ultraviolet-curable adhesive（紫外光固化胶黏剂）。这一组表示相同材料的边界组合；UV 胶是一类按固化方式命名的胶黏剂，并非某一种固定化学配方。",
   },
   {
     number: 3,
     label: "PDMS–UV glue",
     labelZh: "PDMS–UV 胶",
     description:
-      "One PDMS boundary and one UV-glue boundary: a mixed-material configuration.",
-    descriptionZh: "一侧边界为 PDMS，另一侧为 UV 胶，属于不同材料的边界组合。",
+      "One boundary surface is PDMS (polydimethylsiloxane, a silicone polymer); the other is UV glue (ultraviolet-curable adhesive). This is a mixed-material boundary pair.",
+    descriptionZh:
+      "一侧边界材料为 PDMS（聚二甲基硅氧烷，一种有机硅聚合物），另一侧为 UV glue（紫外光固化胶黏剂）。这一组表示两侧使用不同材料的边界组合。",
   },
 ];
 ---
@@ -108,6 +113,16 @@ const simulations = [
             ),
           )}
         </div>
+        <p
+          class="boundary-explainer"
+          data-zh="这里的“边界”指模拟区域的边界表面，组合名称说明两侧分别采用的材料。材料配置与入口/出口条件、流动参数和颗粒—表面相互作用参数是不同的信息；仅凭材料名称不能推断这些数值或作用规律。"
+        >
+          Here, “boundary” refers to a surface bounding the simulated region.
+          Each pair names the material on the two surfaces. Material assignments
+          are distinct from inlet/outlet conditions, flow parameters, and
+          particle–surface interaction settings; the material names alone do not
+          specify those values or behaviors.
+        </p>
         <video
           id="phora-simulation"
           controls

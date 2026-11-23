@@ -84,3 +84,7 @@ by this initiative. No specific publication or licence has been verified here.
 The particle artwork and microfluidic chip schematic are implemented in site
 components. They are illustrations, not experimental evidence. The animation
 respects reduced-motion preferences and pauses when off screen.
+
+Published theme and font notices are included in `public/licenses/third-party-notices.txt`
+and linked from the footer. See [the asset register](docs/asset-register.md) for
+available provenance and the limits of the review.

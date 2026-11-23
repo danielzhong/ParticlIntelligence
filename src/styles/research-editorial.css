@@ -457,3 +457,14 @@
     flex-direction: column;
   }
 }
+
+.boundary-explainer {
+  max-width: 920px;
+  margin: -8px 0 26px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.simulation-context p {
+  max-width: 900px;
+}
