@@ -5,7 +5,7 @@ export const site = {
   taglineZh: "理解颗粒行为，探索微尺度的可能性。",
   email: "contact@partintell.com",
   description:
-    "Particle Intelligence is developing particle behavior modeling, AI-assisted microfluidic design, and 3D printing for research and industry.",
+    "Particle Intelligence is an early-stage research and entrepreneurial initiative exploring particle transport, detection, and microfluidic concepts.",
   descriptionZh:
-    "Particle Intelligence 正在结合颗粒行为建模、AI 辅助微流控设计与 3D 打印，为科研和产业团队探索新的实验与工程方案。",
+    "Particle Intelligence 是早期研究与创业筹备项目，关注颗粒输运、颗粒检测和微流控概念。",
 };

@@ -1,6 +1,7 @@
 # Particle Intelligence
 
-The public website for Particle Intelligence, built with Astro and deployed to
+The public website for the Particle Intelligence research and entrepreneurial
+initiative, built with Astro and deployed to
 [partintell.com](https://partintell.com/). The site presents the team, research
 directions, Phora, and microfluidic design work in English and Chinese.
 
@@ -36,7 +37,7 @@ Astro prints the local URL in the terminal, usually `http://localhost:4321`.
 - `src/layouts/` contains shared layouts and navigation.
 - `src/config/` contains site details, navigation, and theme settings.
 - `src/styles/` contains the site styles.
-- `public/media/` contains published image and video assets.
+- `public/media/` contains published image assets.
 
 ## Deployment
 
@@ -61,7 +62,13 @@ illustrations, not photographs of company equipment or experimental results.
 Astro generates responsive WebP versions at build time. On-page captions and the
 applications note explain this distinction.
 
-The three Phora recordings in `public/media/` are original research videos;
-their posters are frames extracted from those recordings. The particle artwork
-and microfluidic chip schematic are implemented in the site components. The
-animation respects reduced-motion preferences and pauses when off screen.
+The experimental comparison videos and extracted posters have been removed
+from the public assets pending verification of their sources and reuse rights.
+Do not restore them without recording the source publication/DOI, relevant
+material identifiers, rights holder or applicable licence, and required credit.
+Previously published academic work must not be presented as research conducted
+by this initiative. No specific publication or licence has been verified here.
+
+The particle artwork and microfluidic chip schematic are implemented in site
+components. They are illustrations, not experimental evidence. The animation
+respects reduced-motion preferences and pauses when off screen.

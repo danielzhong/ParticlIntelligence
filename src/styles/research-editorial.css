@@ -350,3 +350,41 @@
 .demo-tabs .demo-tab {
   min-height: 44px;
 }
+
+.research-concept {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.research-concept-heading h2 {
+  margin: 12px 0 28px;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+.research-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.research-concept-index {
+  color: var(--pi-accent);
+  font-family: var(--pi-serif);
+  font-size: 22px;
+}
+.research-concept-grid h3 {
+  margin: 18px 0 12px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.research-concept-grid p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+@media (max-width: 650px) {
+  .research-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}

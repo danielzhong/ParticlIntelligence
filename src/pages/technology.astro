@@ -4,110 +4,83 @@ import MicrofluidicChip from "../layouts/components/MicrofluidicChip.astro";
 import "../styles/research-editorial.css";
 import Icon from "../layouts/components/Icon.astro";
 import { withBase } from "../lib/paths";
-
-const videos = [
-  "phora-comparison-01.mp4",
-  "phora-comparison-02.mp4",
-  "phora-comparison-03.mp4",
-];
 ---
 
 <PageLayout
   name="Technology"
   nameZh="技术方向"
   description="Explore Phora particle behavior modeling and AI-assisted microfluidic chip design at Particle Intelligence."
-  descriptionZh="了解 Particle Intelligence 正在开发的 Phora 颗粒行为建模，以及 AI 辅助微流控芯片设计方向。"
+  descriptionZh="了解 Particle Intelligence 的 Phora 研究概念，以及颗粒行为建模与微流控设计的长期愿景。"
 >
   <section class="section" id="phora">
     <div class="container">
-      <span class="eyebrow" data-zh="颗粒行为建模 · 研发中">
-        PARTICLE BEHAVIOR MODELING · IN DEVELOPMENT
+      <span class="eyebrow" data-zh="颗粒行为建模 · 研究概念">
+        PARTICLE BEHAVIOR MODELING · RESEARCH CONCEPT
       </span>
       <h1 data-zh="Phora：探索颗粒在不同环境中的行为。">
         Phora: explore particle behavior across environments.
       </h1>
       <p
         class="page-lead"
-        data-zh="Phora 是我们正在开发的颗粒行为建模工具。我们将实验观察与物理建模、机器学习结合，探索颗粒在不同环境中的运动和分布。"
+        data-zh="Phora 是一个颗粒行为建模研究概念，关注物理建模、机器学习与实验观察之间的联系。它代表一个长期研究方向，尚不是经过验证或可供使用的商业产品。"
       >
-        Phora is our particle behavior modeling tool in development. We bring
-        experimental observations, physical modeling, and machine learning
-        together to explore particle motion and distribution across
-        environments.
+        Phora is a research concept for particle behavior modeling, centered on
+        the connections between physical models, machine learning, and
+        experimental observations. It represents a long-term research direction,
+        not a validated or available commercial product.
       </p>
 
-      <div class="demo-shell" aria-labelledby="phora-demo-title">
-        <div class="demo-heading">
-          <div>
-            <span class="eyebrow" data-zh="产品介绍 · 研发中">
-              PRODUCT OVERVIEW · IN DEVELOPMENT
+      <section class="research-concept" aria-labelledby="phora-questions">
+        <div class="research-concept-heading">
+          <span class="eyebrow" data-zh="值得探索的问题">
+            QUESTIONS TO EXPLORE
+          </span>
+          <h2 id="phora-questions" data-zh="从运动轨迹，到更深的理解。">
+            From trajectories to understanding.
+          </h2>
+        </div>
+        <div class="research-concept-grid">
+          <article>
+            <span class="research-concept-index" aria-hidden="true">
+              01
             </span>
-            <h2 id="phora-demo-title" data-zh="观看实验与模型预测的对照。">
-              Compare an experiment with a model prediction.
-            </h2>
-          </div>
-          <p data-zh="选择一段影像，观看真实实验和同一场景的 Phora 模型预测。">
-            Select a recording to compare the experiment with the Phora model
-            prediction for the same scene.
-          </p>
+            <h3 data-zh="颗粒输运">Particle transport</h3>
+            <p data-zh="流动条件、几何结构与材料相互作用，会怎样影响颗粒的运动和分布？">
+              How do flow conditions, geometry, and material interactions shape
+              particle motion and distribution?
+            </p>
+          </article>
+          <article>
+            <span class="research-concept-index" aria-hidden="true">
+              02
+            </span>
+            <h3 data-zh="颗粒检测">Particle detection</h3>
+            <p data-zh="影像中的哪些信息有助于识别颗粒，并区分真实运动与测量噪声？">
+              What information in an image helps identify particles and
+              distinguish their motion from measurement noise?
+            </p>
+          </article>
+          <article>
+            <span class="research-concept-index" aria-hidden="true">
+              03
+            </span>
+            <h3 data-zh="物理与学习">Physics & learning</h3>
+            <p data-zh="物理约束如何帮助解释数据中的规律，并评估模型在不同条件下的适用范围？">
+              How could physical constraints help interpret patterns in data and
+              assess a model’s limits across different conditions?
+            </p>
+          </article>
         </div>
-
-        <div class="demo-content">
-          <div
-            class="demo-tabs"
-            role="group"
-            aria-label="Choose a comparison video"
-            data-zh-aria-label="选择对照视频"
-          >
-            {videos.map((video, index) => (
-              <button
-                class="demo-tab"
-                type="button"
-                data-phora-video
-                data-video-src={withBase(`/media/${video}`)}
-                data-video-poster={withBase(
-                  `/media/phora-poster-0${index + 1}.jpg`,
-                )}
-                aria-pressed={index === 0 ? "true" : "false"}
-              >
-                <span data-zh={`视频 ${index + 1}`}>Video {index + 1}</span>
-              </button>
-            ))}
-          </div>
-          <div class="comparison-labels">
-            <span data-zh="真实实验结果">EXPERIMENT</span>
-            <span data-zh="Phora 模型预测">PHORA MODEL PREDICTION</span>
-          </div>
-          <video
-            id="phora-comparison-video"
-            controls
-            playsinline
-            preload="metadata"
-            poster={withBase("/media/phora-poster-01.jpg")}
-            src={withBase(`/media/${videos[0]}`)}
-            aria-label="Phora experiment and model prediction comparison"
-            data-zh-aria-label="Phora 实验与模型预测对照视频"
-          >
-            Your browser does not support embedded video.
-          </video>
-          <p
-            class="demo-note"
-            data-zh="模型演示从实验影像中的一个时刻初始化，不包含此后持续进入视野的颗粒。"
-          >
-            The model demonstration is initialized from an experimental frame
-            and does not include particles entering the field afterward.
-          </p>
-        </div>
-      </div>
+      </section>
 
       <div class="contact-cta">
         <div>
           <h2 data-zh="想进一步了解 Phora？">
             Want to learn more about Phora?
           </h2>
-          <p data-zh="欢迎联系 Particle Intelligence，讨论研究需求与合作机会。">
-            Talk with Particle Intelligence about research needs and
-            collaboration.
+          <p data-zh="欢迎交流颗粒行为的研究问题与学术观点。">
+            Share research questions and academic perspectives on particle
+            behavior.
           </p>
         </div>
         <a class="button button-primary" href={withBase("/contact/")}>
@@ -129,14 +102,17 @@ const videos = [
         </h2>
         <p
           class="page-lead"
-          data-zh="从实验需求出发，我们探索用 AI 辅助设计和 3D 打印制作微流控芯片原型，再用实验反馈改进下一版设计。"
+          data-zh="微流控芯片设计是一个可能的未来方向：探索 AI 辅助几何设计、制造方法与实验反馈之间的联系。下方为通用流道结构示意，不代表已制造的设备。"
         >
-          Starting with an experimental question, we explore AI-assisted design
-          and 3D printing for microfluidic chip prototypes. Experimental
-          feedback can inform the next design.
+          A possible future direction is to explore connections between
+          AI-assisted geometry design, fabrication methods, and experimental
+          feedback. The illustration shows a generic channel structure, not a
+          fabricated device.
         </p>
         <a class="section-link" href={withBase("/contact/")}>
-          <span data-zh="讨论芯片设计需求">Discuss chip design needs</span>
+          <span data-zh="交流微流控研究问题">
+            Discuss microfluidic research questions
+          </span>
           <Icon name="arrow" size={18} />
         </a>
       </div>
@@ -144,26 +120,3 @@ const videos = [
     </div>
   </section>
 </PageLayout>
-
-<script>
-  const player = document.querySelector<HTMLVideoElement>(
-    "#phora-comparison-video",
-  );
-  document
-    .querySelectorAll<HTMLButtonElement>("[data-phora-video]")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        if (!player || !button.dataset.videoSrc) return;
-        document
-          .querySelectorAll<HTMLButtonElement>("[data-phora-video]")
-          .forEach((tab) =>
-            tab.setAttribute("aria-pressed", String(tab === button)),
-          );
-        player.pause();
-        player.currentTime = 0;
-        player.poster = button.dataset.videoPoster || "";
-        player.src = button.dataset.videoSrc;
-        player.load();
-      });
-    });
-</script>

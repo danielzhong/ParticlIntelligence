@@ -6,40 +6,66 @@ import { site } from "../config/site";
 <PageLayout
   name="Contact"
   nameZh="联系我们"
-  description="Contact Particle Intelligence about research, microfluidic chip design, industry collaboration, or investment."
-  descriptionZh="联系 Particle Intelligence，讨论科研、微流控芯片设计、产业合作或投资相关事宜。"
+  description="Contact the Particle Intelligence initiative for academic discussion and general inquiries."
+  descriptionZh="联系 Particle Intelligence 筹备项目，交流学术问题或一般咨询。"
 >
   <section class="section">
     <div class="container">
-      <span class="eyebrow" data-zh="开始一场交流">START A CONVERSATION</span>
-      <h1 data-zh="告诉我们你正在探索什么。">Tell us what you are exploring.</h1>
-      <p class="page-lead" data-zh="欢迎科研人员、芯片设计团队、产业伙伴和投资人联系 Particle Intelligence。简要介绍你的问题，我们会进一步交流。">
-        We welcome inquiries from researchers, chip design teams, industry partners, and investors. Briefly tell Particle Intelligence what you are working on and we can take the conversation from there.
+      <span class="eyebrow" data-zh="开始一场交流">
+        START A CONVERSATION
+      </span>
+      <h1 data-zh="告诉我们你正在探索什么。">
+        Tell us what you are exploring.
+      </h1>
+      <p
+        class="page-lead"
+        data-zh="Particle Intelligence 是早期研究与创业筹备项目。欢迎交流颗粒科学的研究问题、学术观点以及对项目的建议。"
+      >
+        Particle Intelligence is an early-stage research and entrepreneurial
+        initiative. We welcome research questions, academic perspectives, and
+        feedback on the ideas presented here.
       </p>
       <div class="contact-options">
         <article class="contact-option">
-          <h2 data-zh="科研与 Phora">Research & Phora</h2>
-          <p data-zh="讨论颗粒行为建模、研究问题或实验合作。">Discuss particle behavior modeling, research questions, or experimental collaboration.</p>
+          <h2 data-zh="颗粒科学">Particle science</h2>
+          <p data-zh="交流颗粒输运、检测与物理建模方面的研究问题。">
+            Discuss research questions in particle transport, detection, and
+            physical modeling.
+          </p>
         </article>
         <article class="contact-option">
-          <h2 data-zh="芯片设计与原型">Chip design & prototyping</h2>
-          <p data-zh="交流微流控芯片设计、建模和 3D 打印需求。">Talk about microfluidic chip design, modeling, and 3D printing needs.</p>
+          <h2 data-zh="微流控概念">Microfluidic concepts</h2>
+          <p data-zh="分享有关流道几何、流动行为与测量方法的学术观点。">
+            Share academic perspectives on channel geometry, flow behavior, and
+            measurement methods.
+          </p>
         </article>
         <article class="contact-option">
-          <h2 data-zh="产业合作">Industry collaboration</h2>
-          <p data-zh="探索应用场景、研发需求和合作方式。">Explore application contexts, development needs, and collaboration.</p>
+          <h2 data-zh="学术交流">Academic exchange</h2>
+          <p data-zh="推荐相关文献，或交流值得进一步探索的科学问题。">
+            Suggest relevant literature or discuss scientific questions worth
+            exploring.
+          </p>
         </article>
         <article class="contact-option">
-          <h2 data-zh="投资与战略交流">Investment & strategy</h2>
-          <p data-zh="了解公司方向和正在推进的研发工作。">Learn about the company’s direction and work in development.</p>
+          <h2 data-zh="一般咨询">General inquiries</h2>
+          <p data-zh="了解项目愿景，或对网站内容提出建议与更正。">
+            Ask about the initiative’s vision or share feedback and corrections
+            to the website.
+          </p>
         </article>
       </div>
       <div class="contact-cta">
         <div>
           <h2 data-zh="直接发邮件给我们">Email us directly</h2>
-          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
         </div>
-        <a class="button button-primary" href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}>
+        <a
+          class="button button-primary"
+          href={`mailto:${site.email}?subject=${encodeURIComponent(`${site.name} inquiry`)}`}
+        >
           <span data-zh="发送邮件">Send an email</span>
           <span aria-hidden="true">→</span>
         </a>
